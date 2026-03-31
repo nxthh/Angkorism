@@ -1,11 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angkorism</title>
+
+    <link rel="stylesheet" href="src/output.css" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="relative">
+      <!-- navbar -->
+      <nav class="fixed top-0 w-full z-20">
+        <div
+          class="py-4 grid grid-cols-3 items-center bg-cream dark:bg-deep dark:text-cream backdrop-blur-xl"
+        >
+          <!-- Logo -->
+          <div class="flex pl-8 items-center gap-8 text-2xl font-semibold">
+            <div><h1>Angkorism</h1></div>
+          </div>
+          <!-- navigation -->
+          <div
+            class="flex justify-center gap-8 border backdrop-blur-lg bg-white/10 border-white/20 px-3 py-3 rounded-full font-semibold text-deep dark:text-cream"
+          >
+            <a href="" class="hover:text-gold transition-colors duration-200"
+              >HOME</a
+            >
+            <a href="" class="hover:text-gold transition-colors duration-200"
+              >DESTINATIONS</a
+            >
+            <a href="" class="hover:text-gold transition-colors duration-200"
+              >GALLERY</a
+            >
+            <a href="" class="hover:text-gold transition-colors duration-200"
+              >ABOUT US</a
+            >
+          </div>
+          <!-- buttons -->
+          <div></div>
+        </div>
+      </nav>
+
+      <!-- Hero image + overlay text -->
+      <div class="relative w-full">
+        <img
+          src="/assets/hero2.jpg"
+          alt="Angkor Wat"
+          class="w-full object-cover pointer-events-none"
+        />
+        <!-- Dark gradient overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+        ></div>
+
+        <!-- Welcome text -->
+        <div
+          class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4"
+        >
+          <p
+            class="font-['Lato'] uppercase tracking-[0.3em] text-sm font-semibold text-gold-light mb-4"
+          >
+            Cambodia · Siem Reap
+          </p>
+          <h1
+            class="font-['Playfair_Display'] text-5xl md:text-7xl font-bold leading-tight mb-6"
+          >
+            Welcome to<br /><span class="text-gold">Angkorism</span>
+          </h1>
+          <p
+            class="font-['Lato'] text-lg md:text-xl text-white/80 max-w-xl mb-8"
+          >
+            Journey through ancient temples, golden sunsets, and timeless
+            culture.
+          </p>
+          <a
+            href=""
+            class="font-['Lato'] uppercase tracking-widest text-sm border bg-white/10 backdrop-blur-lg shadow-lg border-white/20 px-8 py-3 rounded-full hover:bg-gold hover:text-cream transition-all duration-300"
+          >
+            Explore Now
+          </a>
+        </div>
+      </div>
+    </header>
+  </body>
 </html>
