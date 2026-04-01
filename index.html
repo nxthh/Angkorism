@@ -43,8 +43,18 @@
               >ABOUT US</a
             >
           </div>
-          <!-- buttons -->
-          <div></div>
+
+          <!-- theme toggle -->
+          <div class="flex justify-end pr-8">
+            <button
+              onclick="toggleTheme()"
+              id="theme-toggle"
+              class="w-10 h-10 rounded-full border border-gold bg-white/10 backdrop-blur-lg hover:border-gold/50 hover:bg-gold/20 transition-all duration-300 focus:outline-none text-lg"
+              aria-label="Toggle theme"
+            >
+              <img src="/assets/moon.png" alt="" />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -89,5 +99,30 @@
         </div>
       </div>
     </header>
+    <script>
+      function applyTheme(isDark) {
+        const btn = document.getElementById("theme-toggle");
+        if (isDark) {
+          document.documentElement.classList.add("dark");
+          btn.textContent = "🌙";
+        } else {
+          document.documentElement.classList.remove("dark");
+          btn.textContent = "☀️";
+        }
+      }
+
+      function toggleTheme() {
+        const isDark = !document.documentElement.classList.contains("dark");
+        localStorage.theme = isDark ? "dark" : "light";
+        applyTheme(isDark);
+      }
+
+      // On load
+      const prefersDark =
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      applyTheme(prefersDark);
+    </script>
   </body>
 </html>
