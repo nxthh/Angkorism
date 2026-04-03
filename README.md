@@ -1,4 +1,4 @@
-# Angkorism 🛕
+# Angkorism 
 
 [![Repository](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/nxthh/Angkorism)
 
