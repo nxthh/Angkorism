@@ -1,4 +1,4 @@
-# Angkorism 🛕
+# Angkorism 
 
 > **Discover the Wonders of Siem Reap.**
 > A modern tourism platform designed to list and guide travelers through the magnificent temples, cultural landmarks, and hidden gems of Siem Reap.
