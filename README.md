@@ -1,4 +1,6 @@
-# Angkorism 
+# Angkorism 🛕
+
+[![Repository](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/nxthh/Angkorism)
 
 > **Discover the Wonders of Siem Reap.**
 > A modern tourism platform designed to list and guide travelers through the magnificent temples, cultural landmarks, and hidden gems of Siem Reap.
@@ -14,12 +16,12 @@ The goal of this project is to create a seamless, visually engaging, and highly 
 ## ✨ Features
 
 * **Destination Directory:** Browse an extensive list of temples, museums, markets, and natural attractions in Siem Reap.
-* **Curated Tour Guides:** Step-by-step itineraries and guides to help users maximize their visit (e.g., Small Circuit, Grand Circuit, Sunrise tours).
-* **Interactive Discovery:** Search and filter destinations based on categories, popularity, or distance.
-* **Modern & Responsive UI:** A clean, minimalist interface optimized for both desktop planning and on-the-go mobile browsing.
+* **Curated Tour Guides:** Step-by-step itineraries and guides to help users maximize their visit.
+* **Modern UI/UX:** A clean, minimalist interface optimized for seamless browsing.
+* **Responsive Design:** Fully accessible and visually appealing on both desktop and mobile devices.
 
-### Installation
+## 🛠️ Built With
 
-1. Clone the repository
-   ```sh
-   git clone [https://github.com/nxthh/angkorism.git](https://github.com/nxthh/angkorism.git)
+* **Markup:** HTML5
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+
