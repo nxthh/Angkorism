@@ -22,4 +22,4 @@ The goal of this project is to create a seamless, visually engaging, and highly 
 
 1. Clone the repository
    ```sh
-   git clone [https://github.com/your-username/angkorism.git](https://github.com/your-username/angkorism.git)
+   git clone [https://github.com/nxthh/angkorism.git](https://github.com/nxthh/angkorism.git)
