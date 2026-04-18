@@ -32,18 +32,18 @@
         >
           <a
             href="index.html"
-            class="hover:text-gold transition-colors duration-200"
+            class="hover:text-gold transition-colors duration-500"
             >HOME</a
           >
           <a
             href="destinations.html"
-            class="text-gold transition-colors duration-200"
+            class="text-gold transition-colors duration-500"
             >DESTINATIONS</a
           >
-          <a href="#" class="hover:text-gold transition-colors duration-200"
+          <a href="#" class="hover:text-gold transition-colors duration-500"
             >GALLERY</a
           >
-          <a href="#" class="hover:text-gold transition-colors duration-200"
+          <a href="#" class="hover:text-gold transition-colors duration-500"
             >ABOUT US</a
           >
         </div>
@@ -1439,24 +1439,23 @@
     });
 
     /* ── Filter buttons ── */
-    function filterCards(btn, category) {
-      document.querySelectorAll(".filter-btn").forEach((b) => {
-        b.className = b.className
-          .replace("border-gold text-gold bg-gold/10", "")
-          .replace("border-gold/25 text-cream/50", "")
-          .trim();
-        b.classList.add("border-gold/25", "text-cream/50");
-      });
-      btn.classList.remove("border-gold/25", "text-cream/50");
-      btn.classList.add("border-gold", "text-gold", "bg-gold/10");
+  function filterCards(btn, category) {
+  // Reset ALL buttons to inactive state
+  document.querySelectorAll(".filter-btn").forEach((b) => {
+    b.classList.remove("border-gold", "text-gold", "bg-gold/10");
+    b.classList.add("border-gold/25", "text-deep/80", "dark:border-gold/25", "dark:text-cream/50");
+  });
 
-      document.querySelectorAll(".dest-card").forEach((card) => {
-        card.style.display =
-          category === "all" || card.dataset.category === category
-            ? ""
-            : "none";
-      });
-    }
+  // Set clicked button to active state
+  btn.classList.remove("border-gold/25", "text-deep/80", "dark:border-gold/25", "dark:text-cream/50");
+  btn.classList.add("border-gold", "text-gold", "bg-gold/10");
+
+  // Filter cards
+  document.querySelectorAll(".dest-card").forEach((card) => {
+    card.style.display =
+      category === "all" || card.dataset.category === category ? "" : "none";
+  });
+}
 
     /* ── Theme toggle (same as index.html) ── */
     function applyTheme(isDark) {
