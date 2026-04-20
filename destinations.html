@@ -996,7 +996,7 @@
       <!-- Panel -->
       <div
         id="modal-panel"
-        class="relative bg-deep border border-gold/30 w-full max-w-3xl max-h-[90vh] overflow-y-auto mx-auto translate-y-6 transition-transform duration-300"
+        class="relative bg-cream dark:bg-deep border border-gold/30 w-full max-w-3xl max-h-[90vh] overflow-y-auto mx-auto translate-y-6 transition-transform duration-300"
       >
         <!-- Image -->
         <div class="relative h-72 overflow-hidden">
@@ -1006,34 +1006,32 @@
             alt=""
             class="w-full h-full object-cover pointer-events-none"
           />
-          <div
-            class="absolute inset-0 bg-linear-to-t from-deep via-deep/20 to-transparent"
-          ></div>
+
 
           <!-- Close button -->
           <button
             onclick="closeModal()"
-            class="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center bg-deep/80 border border-gold/40 text-cream text-base cursor-pointer hover:bg-gold/20 transition-colors duration-200"
+            class="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center bg-cream/80 dark:bg-deep/80 border border-gold/40 text-deep dark:text-cream text-base cursor-pointer hover:bg-gold/20 transition-colors duration-200"
           >
             ✕
           </button>
 
-          <!-- Category badge on image -->
-          <span
-            id="modal-cat"
-            class="absolute bottom-14 left-6 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/80 px-2.5 py-1"
-          >
-          </span>
-
-          <!-- Title on image -->
-          <h2
-            id="modal-title"
-            class="absolute bottom-4 left-6 font-['Playfair_Display'] text-3xl font-bold text-cream"
-          ></h2>
         </div>
 
         <!-- Body -->
         <div class="px-8 py-6">
+          <!-- Category badge -->
+          <span
+            id="modal-cat"
+            class="inline-block font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 px-2.5 py-1 mb-3"
+          ></span>
+
+          <!-- Title -->
+          <h2
+            id="modal-title"
+            class="font-['Playfair_Display'] text-3xl font-bold text-deep dark:text-cream mb-1"
+          ></h2>
+
           <!-- Location -->
           <p
             id="modal-location"
@@ -1046,7 +1044,7 @@
           <!-- Description -->
           <p
             id="modal-description"
-            class="font-['Lato'] text-[15px] leading-relaxed text-cream/70 mb-6"
+            class="font-['Lato'] text-[15px] leading-relaxed text-deep/70 dark:text-cream/70 mb-6"
           ></p>
 
           <!-- Info rows -->
@@ -1394,8 +1392,8 @@
       d.info.forEach((row) => {
         const div = document.createElement("div");
         div.className =
-          "flex justify-between items-center py-2.5 border-b border-white/[0.07] font-['Lato'] text-sm";
-        div.innerHTML = `<span class="text-cream/45">${row.label}</span><span class="text-cream font-bold text-right">${row.value}</span>`;
+          "flex justify-between items-center py-2.5 border-b border-deep/10 dark:border-white/[0.07] font-['Lato'] text-sm";
+        div.innerHTML = `<span class="text-deep/45 dark:text-cream/45">${row.label}</span><span class="text-deep dark:text-cream font-bold text-right">${row.value}</span>`;
         infoEl.appendChild(div);
       });
 
@@ -1405,7 +1403,7 @@
       d.highlights.forEach((h) => {
         const div = document.createElement("div");
         div.className =
-          "flex gap-3 items-start font-['Lato'] text-sm text-cream/70 leading-relaxed";
+          "flex gap-3 items-start font-['Lato'] text-sm text-deep/70 dark:text-cream/70 leading-relaxed";
         div.innerHTML = `<span class="text-gold flex-shrink-0 mt-0.5">✦</span><span>${h}</span>`;
         hlEl.appendChild(div);
       });
