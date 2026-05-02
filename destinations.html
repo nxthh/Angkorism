@@ -6,92 +6,53 @@
     <title>Angkorism</title>
 
     <link rel="stylesheet" href="src/output.css" />
+    <style>
+      #mobile-menu.open { display: flex; }
+      #menu-toggle.open .hamburger-line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      #menu-toggle.open .hamburger-line:nth-child(2) { opacity: 0; }
+      #menu-toggle.open .hamburger-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+      .hamburger-line { transition: transform 0.3s, opacity 0.3s; }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
   </head>
 
   <body class="bg-cream dark:bg-deep transition-colors duration-500">
     <nav class="fixed top-0 w-full z-20">
-      <div
-        class="py-4 grid grid-cols-3 items-center bg-cream dark:bg-deep dark:text-cream backdrop-blur-xl transition-colors duration-500"
-      >
-        <div class="flex pl-8 items-center gap-8 text-2xl font-semibold">
-          <a
-            href="index.html"
-            class="no-underline text-deep dark:text-cream transition-colors duration-500"
-            ><h1>Angkorism</h1></a
-          >
+        <div class="py-4 flex items-center justify-between px-4 sm:px-8 bg-cream dark:bg-deep dark:text-cream backdrop-blur-xl transition-colors duration-500 lg:grid lg:grid-cols-3">
+          <div class="flex items-center text-2xl font-semibold">
+            <a href="index.html" class="no-underline text-deep dark:text-cream transition-colors duration-500"><h1>Angkorism</h1></a>
+          </div>
+          <div class="hidden lg:flex justify-center gap-8 border border-deep bg-deep/5 backdrop-blur-lg dark:bg-white/10 dark:border-white/20 px-3 py-3 rounded-full font-semibold text-deep dark:text-cream transition-colors duration-500">
+            <a href="index.html" class="hover:text-gold transition-colors duration-500">HOME</a>
+            <a href="destinations.html" class="text-gold transition-colors duration-500">DESTINATIONS</a>
+            <a href="gallery.html" class="hover:text-gold transition-colors duration-500">GALLERY</a>
+            <a href="about.html" class="hover:text-gold transition-colors duration-500">ABOUT US</a>
+          </div>
+          <div class="flex items-center gap-3 lg:justify-end">
+            <button onclick="toggleTheme()" id="theme-toggle" class="relative w-10 h-10 rounded-full border border-gold bg-white/10 backdrop-blur-lg hover:border-gold/50 hover:bg-gold/20 transition-all duration-300 focus:outline-none flex items-center justify-center">
+              <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#1a1410" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+              <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="#f5f0e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg>
+            </button>
+            <button id="menu-toggle" onclick="toggleMenu()" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none" aria-label="Toggle menu">
+              <span class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"></span>
+              <span class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"></span>
+              <span class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"></span>
+            </button>
+          </div>
         </div>
-        <div
-          class="flex justify-center gap-8 border border-deep bg-deep/5 backdrop-blur-lg dark:bg-white/10 dark:border-white/20 px-3 py-3 rounded-full font-semibold text-deep dark:text-cream transition-colors duration-500"
-        >
-          <a
-            href="index.html"
-            class="hover:text-gold transition-colors duration-500"
-            >HOME</a
-          >
-          <a
-            href="destinations.html"
-            class="text-gold transition-colors duration-500"
-            >DESTINATIONS</a
-          >
-          <a
-            href="gallery.html"
-            class="hover:text-gold transition-colors duration-500"
-            >GALLERY</a
-          >
-          <a
-            href="about.html"
-            class="hover:text-gold transition-colors duration-500"
-            >ABOUT US</a
-          >
+        <div id="mobile-menu" class="lg:hidden hidden flex-col bg-cream dark:bg-deep border-t border-gold/20 px-6 py-6 gap-5 font-semibold text-deep dark:text-cream transition-colors duration-500">
+          <a href="index.html" class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase">Home</a>
+          <a href="destinations.html" class="text-gold text-sm tracking-widest uppercase">Destinations</a>
+          <a href="gallery.html" class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase">Gallery</a>
+          <a href="about.html" class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase">About Us</a>
         </div>
-        <div class="flex justify-end pr-8">
-          <button
-            onclick="toggleTheme()"
-            id="theme-toggle"
-            class="relative w-10 h-10 rounded-full border border-gold bg-white/10 backdrop-blur-lg hover:border-gold/50 hover:bg-gold/20 transition-all duration-300 focus:outline-none flex items-center justify-center"
-          >
-            <svg
-              id="icon-moon"
-              xmlns="http://www.w3.org/2000/svg"
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1a1410"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-            <svg
-              id="icon-sun"
-              xmlns="http://www.w3.org/2000/svg"
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 hidden"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#f5f0e8"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="5" />
-              <line x1="12" y1="1" x2="12" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="23" />
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-              <line x1="1" y1="12" x2="3" y2="12" />
-              <line x1="21" y1="12" x2="23" y2="12" />
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
+      </nav>
 
     <!-- ── PAGE HEADER ── -->
     <div
-      class="pt-28 pb-10 px-16 bg-cream dark:bg-deep transition-colors duration-500"
+      class="pt-28 pb-10 px-4 sm:px-8 lg:px-16 bg-cream dark:bg-deep transition-colors duration-500"
     >
       <p
         class="font-['Lato'] uppercase tracking-[0.3em] text-xs font-semibold text-gold mb-2"
@@ -99,7 +60,7 @@
         Explore Cambodia
       </p>
       <h1
-        class="font-['Playfair_Display'] text-5xl font-bold text-deep dark:text-cream mb-3 transition-colors duration-500"
+        class="font-['Playfair_Display'] text-3xl sm:text-4xl lg:text-5xl font-bold text-deep dark:text-cream mb-3 transition-colors duration-500"
       >
         Destinations
       </h1>
@@ -113,7 +74,7 @@
 
     <!-- ── FILTER BAR ── -->
     <div
-      class="bg-cream dark:bg-deep border-b border-gold dark:border-gold/20 px-16 pb-5 flex gap-3 flex-wrap transition-colors duration-500"
+      class="bg-cream dark:bg-deep border-b border-gold dark:border-gold/20 px-4 sm:px-8 lg:px-16 pb-5 flex gap-3 flex-wrap transition-colors duration-500"
     >
       <button
         onclick="filterCards(this, 'all')"
@@ -149,9 +110,9 @@
 
     <!-- ── CARDS GRID ── -->
     <main
-      class="bg-cream dark:bg-deep px-16 py-14 min-h-screen transition-colors duration-500"
+      class="bg-cream dark:bg-deep px-4 sm:px-8 lg:px-16 py-10 sm:py-14 min-h-screen transition-colors duration-500"
     >
-      <div class="grid grid-cols-3 gap-6" id="cards-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="cards-grid">
         <!-- Card: Angkor Wat -->
         <div
           class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
@@ -983,13 +944,13 @@
     <!-- Backdrop -->
     <div
       id="modal-backdrop"
-      class="fixed inset-0 z-50 flex items-center justify-content-center p-6 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+      class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
       onclick="handleBackdropClick(event)"
     >
       <!-- Panel -->
       <div
         id="modal-panel"
-        class="relative bg-cream dark:bg-deep border border-gold/30 w-full max-w-3xl max-h-[90vh] overflow-y-auto mx-auto translate-y-6 transition-transform duration-300"
+        class="relative bg-cream dark:bg-deep border border-gold/30 w-full max-w-3xl max-h-[90vh] sm:max-h-[90vh] overflow-y-auto mx-auto translate-y-6 transition-transform duration-300"
       >
         <!-- Image -->
         <div class="relative h-72 overflow-hidden">
@@ -1011,7 +972,7 @@
         </div>
 
         <!-- Body -->
-        <div class="px-8 py-6">
+        <div class="px-4 sm:px-8 py-5 sm:py-6">
           <!-- Category badge -->
           <span
             id="modal-cat"
@@ -1064,8 +1025,8 @@
     </div>
 
     <!-- ── FOOTER ── -->
-    <footer class="bg-[#0f0c09] px-16 py-16">
-      <div class="grid grid-cols-4 gap-12 pb-12 border-b border-gold/20 mb-8">
+    <footer class="bg-[#0f0c09] px-4 sm:px-8 lg:px-16 py-12 sm:py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 pb-10 sm:pb-12 border-b border-gold/20 mb-8">
         <!-- Brand -->
         <div>
           <h2
@@ -1158,7 +1119,7 @@
         </div>
       </div>
 
-      <div class="flex items-center justify-between">
+      <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-4">
         <p class="font-['Lato'] text-xs text-cream/25">
           © 2026 Angkorism. All rights reserved.
         </p>
@@ -1462,6 +1423,12 @@
       });
     }
 
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const toggle = document.getElementById('menu-toggle');
+      menu.classList.toggle('open');
+      toggle.classList.toggle('open');
+    }
     /* ── Theme toggle (same as index.html) ── */
     function applyTheme(isDark) {
       const moon = document.getElementById("icon-moon");
