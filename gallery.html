@@ -19,47 +19,155 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <script>
+      (function () {
+        const isDark =
+          localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (isDark) document.documentElement.classList.add("dark");
+      })();
+    </script>
+
     <style>
-      #mobile-menu.open { display: flex; }
-      #menu-toggle.open .hamburger-line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-      #menu-toggle.open .hamburger-line:nth-child(2) { opacity: 0; }
-      #menu-toggle.open .hamburger-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-      .hamburger-line { transition: transform 0.3s, opacity 0.3s; }
+      #mobile-menu.open {
+        display: flex;
+      }
+      #menu-toggle.open .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      #menu-toggle.open .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      #menu-toggle.open .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      .hamburger-line {
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
     </style>
   </head>
 
   <body class="bg-cream dark:bg-deep transition-colors duration-500">
     <!-- NAVBAR -->
     <nav class="fixed top-0 w-full z-20">
-        <div class="py-4 flex items-center justify-between px-4 sm:px-8 bg-cream dark:bg-deep dark:text-cream backdrop-blur-xl transition-colors duration-500 lg:grid lg:grid-cols-3">
-          <div class="flex items-center text-2xl font-semibold">
-            <div><h1 class="text-deep dark:text-cream">Angkorism</h1></div>
-          </div>
-          <div class="hidden lg:flex justify-center gap-8 border border-deep bg-deep/5 backdrop-blur-lg dark:bg-white/10 dark:border-white/20 px-3 py-3 rounded-full font-semibold text-deep dark:text-cream transition-colors duration-500">
-            <a href="/" class="hover:text-gold transition-colors duration-500">HOME</a>
-            <a href="/destinations.html" class="hover:text-gold transition-colors duration-500">DESTINATIONS</a>
-            <a href="/gallery.html" class="text-gold transition-colors duration-500">GALLERY</a>
-            <a href="/about.html" class="hover:text-gold transition-colors duration-500">ABOUT US</a>
-          </div>
-          <div class="flex items-center gap-3 lg:justify-end">
-            <button onclick="toggleTheme()" id="theme-toggle" class="relative w-10 h-10 rounded-full border border-gold bg-white/10 backdrop-blur-lg hover:border-gold/50 hover:bg-gold/20 transition-all duration-300 focus:outline-none flex items-center justify-center" aria-label="Toggle theme">
-              <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#1a1410" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
-              <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="#f5f0e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg>
-            </button>
-            <button id="menu-toggle" onclick="toggleMenu()" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none" aria-label="Toggle menu">
-              <span class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"></span>
-              <span class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"></span>
-              <span class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"></span>
-            </button>
-          </div>
+      <div
+        class="py-4 flex items-center justify-between px-4 sm:px-8 bg-cream dark:bg-deep dark:text-cream backdrop-blur-xl transition-colors duration-500 lg:grid lg:grid-cols-3"
+      >
+        <div class="flex items-center text-2xl font-semibold">
+          <div><h1 class="text-deep dark:text-cream">Angkorism</h1></div>
         </div>
-        <div id="mobile-menu" class="lg:hidden hidden flex-col bg-cream dark:bg-deep border-t border-gold/20 px-6 py-6 gap-5 font-semibold text-deep dark:text-cream transition-colors duration-500">
-          <a href="/" class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase">Home</a>
-          <a href="/destinations.html" class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase">Destinations</a>
-          <a href="/gallery.html" class="text-gold text-sm tracking-widest uppercase">Gallery</a>
-          <a href="/about.html" class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase">About Us</a>
+        <div
+          class="hidden lg:flex justify-center gap-8 border border-deep bg-deep/5 backdrop-blur-lg dark:bg-white/10 dark:border-white/20 px-3 py-3 rounded-full font-semibold text-deep dark:text-cream transition-colors duration-500"
+        >
+          <a href="/" class="hover:text-gold transition-colors duration-500"
+            >HOME</a
+          >
+          <a
+            href="/destinations.html"
+            class="hover:text-gold transition-colors duration-500"
+            >DESTINATIONS</a
+          >
+          <a
+            href="/gallery.html"
+            class="text-gold transition-colors duration-500"
+            >GALLERY</a
+          >
+          <a
+            href="/about.html"
+            class="hover:text-gold transition-colors duration-500"
+            >ABOUT US</a
+          >
         </div>
-      </nav>
+        <div class="flex items-center gap-3 lg:justify-end">
+          <button
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            class="relative w-10 h-10 rounded-full border border-gold bg-white/10 backdrop-blur-lg hover:border-gold/50 hover:bg-gold/20 transition-all duration-300 focus:outline-none flex items-center justify-center"
+            aria-label="Toggle theme"
+          >
+            <svg
+              id="icon-moon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#1a1410"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg
+              id="icon-sun"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 hidden"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#f5f0e8"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+          <button
+            id="menu-toggle"
+            onclick="toggleMenu()"
+            class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <span
+              class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"
+            ></span>
+            <span
+              class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"
+            ></span>
+            <span
+              class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"
+            ></span>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden flex-col bg-cream dark:bg-deep border-t border-gold/20 px-6 py-6 gap-5 font-semibold text-deep dark:text-cream transition-colors duration-500"
+      >
+        <a
+          href="/"
+          class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase"
+          >Home</a
+        >
+        <a
+          href="/destinations.html"
+          class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase"
+          >Destinations</a
+        >
+        <a
+          href="/gallery.html"
+          class="text-gold text-sm tracking-widest uppercase"
+          >Gallery</a
+        >
+        <a
+          href="/about.html"
+          class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase"
+          >About Us</a
+        >
+      </div>
+    </nav>
 
     <!-- HERO -->
     <header class="relative pt-[72px]">
@@ -107,7 +215,7 @@
               Visual Journey
             </p>
             <h2
-              class="font-['Playfair_Display'] text-3xl sm:text-4xl font-bold text-deep dark:text-cream"
+              class="font-['Playfair_Display'] text-3xl sm:text-4xl font-bold text-deep dark:text-cream transition-colors duration-500"
             >
               Photo Gallery
             </h2>
@@ -116,7 +224,7 @@
           <div class="flex gap-2 flex-wrap">
             <button
               data-filter="all"
-              class="filter-btn font-['Lato'] text-xs font-bold uppercase tracking-widest px-5 py-2 border border-gold text-gold bg-gold/10 transition-color duration-500"
+              class="filter-btn font-['Lato'] text-xs font-bold uppercase tracking-widest px-5 py-2 border border-gold dark:border-gold/25 text-deep/80 dark:text-cream/50 hover:border-gold hover:text-gold transition-colors duration-500"
             >
               All
             </button>
@@ -142,10 +250,10 @@
         </div>
 
         <!-- Gallery Grid -->
-        <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 p-1.5">
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-6 p-1.5">
           <!-- Card 1 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="architecture"
             data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/6e/59/34/caption.jpg?w=900&h=500&s=1"
             data-caption="Angkor Wat — Full Complex View"
@@ -160,7 +268,7 @@
 
           <!-- Card 2 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="architecture"
             data-src="https://cdn.britannica.com/55/122155-050-56389FCC/Bayon-temple-Angkor-Thom-Cambodia.jpg"
             data-caption="Sunrise Reflections at Angkor Wat"
@@ -175,7 +283,7 @@
 
           <!-- Card 3 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="architecture"
             data-src="https://www.visitsoutheastasia.travel/wp-content/uploads/2019/10/Cambodia-Bayon-Temple-690x400.jpg"
             data-caption="Bayon Temple — The Smiling Faces"
@@ -190,7 +298,7 @@
 
           <!-- Card 4 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="details"
             data-src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Siem-Reap-Pub-Street.png"
             data-caption="Ta Prohm — Where Jungle Meets Stone"
@@ -205,7 +313,7 @@
 
           <!-- Card 5 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="nature"
             data-src="http://khmerways.com/wp-content/uploads/2018/02/Kulen-National-Park-Waterfall-small.jpg"
             data-caption="Kulen Waterfall — Sacred Waters"
@@ -220,7 +328,7 @@
 
           <!-- Card 6 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="architecture"
             data-src="https://www.staynature.net/wp-content/uploads/2025/02/Ta-Prohm-Temple-4.jpg"
             data-caption="Ancient Stone Carvings at Ta Prohm"
@@ -235,7 +343,7 @@
 
           <!-- Card 7 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="architecture"
             data-src="https://livingnomads.com/wp-content/uploads/2016/12/13/siem-reap-places-to-visit-siem-reap-attractions.jpg"
             data-caption="Golden Hour at the Temple"
@@ -250,7 +358,7 @@
 
           <!-- Card 8 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="details"
             data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/ed/5b/3d/siem-reap-riverside-park.jpg?w=900&h=500&s=1"
             data-caption="Riverside Park"
@@ -265,7 +373,7 @@
 
           <!-- Card 9 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="details"
             data-src="https://images.pexels.com/photos/14591803/pexels-photo-14591803.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             data-caption="Khmer Cuisine — Cultural Flavours"
@@ -280,7 +388,7 @@
 
           <!-- Card 10 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="architecture"
             data-src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/80/f1/f8.jpg"
             data-caption="Golden Hour at the Temple"
@@ -295,7 +403,7 @@
 
           <!-- Card 11 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="nature"
             data-src="https://res.klook.com/image/upload/w_750,h_469,c_fill,q_85/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/wfewk3ikwizxtfrx5t89.jpg"
             data-caption="Golden Hour at the Temple"
@@ -310,7 +418,7 @@
 
           <!-- Card 12 -->
           <div
-            class="gallery-item mb-[6px] break-inside-avoid cursor-pointer overflow-hidden"
+            class="gallery-item mb-4 break-inside-avoid cursor-pointer overflow-hidden"
             data-category="architecture"
             data-src="https://cms.siemreaper.click/uploads/best_time_to_visit_angkor_wat_sunrise2712_83be14cd3d.jpg"
             data-caption="Angkor Wat Sunrise"
@@ -434,7 +542,9 @@
     <!-- FOOTER -->
 
     <footer class="bg-[#0f0c09] px-4 sm:px-8 lg:px-16 py-12 sm:py-16">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 pb-10 sm:pb-12 border-b border-gold/20 mb-8">
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 pb-10 sm:pb-12 border-b border-gold/20 mb-8"
+      >
         <!-- Brand -->
         <div class="col-span-2 md:col-span-1">
           <h2
@@ -527,7 +637,9 @@
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-4">
+      <div
+        class="flex flex-col sm:flex-row items-center sm:justify-between gap-4"
+      >
         <p class="font-['Lato'] text-xs text-cream/25">
           © 2026 Angkorism. All rights reserved.
         </p>
@@ -628,10 +740,10 @@
 
     <script>
       function toggleMenu() {
-        const menu = document.getElementById('mobile-menu');
-        const toggle = document.getElementById('menu-toggle');
-        menu.classList.toggle('open');
-        toggle.classList.toggle('open');
+        const menu = document.getElementById("mobile-menu");
+        const toggle = document.getElementById("menu-toggle");
+        menu.classList.toggle("open");
+        toggle.classList.toggle("open");
       }
       /* ── Theme (same as index.html) ── */
       function applyTheme(isDark) {
