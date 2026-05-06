@@ -6,17 +6,6 @@
     <title>Angkorism</title>
 
     <link rel="stylesheet" href="src/output.css" />
-
-    <script>
-      (function () {
-        const isDark =
-          localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches);
-        if (isDark) document.documentElement.classList.add("dark");
-      })();
-    </script>
-
     <style>
       #mobile-menu.open {
         display: flex;
@@ -211,18 +200,12 @@
         Nature
       </button>
       <button
-        onclick="filterCards(this, 'city')"
+        onclick="filterCards(this, 'cultural')"
         class="filter-btn font-['Lato'] text-xs font-bold uppercase tracking-widest px-5 py-2 border border-gold dark:border-gold/25 text-deep/80 dark:text-cream/50 hover:border-gold hover:text-gold transition-colors duration-500"
       >
-        Cities
+        Cultural
       </button>
-      <button
-        onclick="filterCards(this, 'tradition')"
-        class="filter-btn font-['Lato'] text-xs font-bold uppercase tracking-widest px-5 py-2 border border-gold dark:border-gold/25 text-deep/80 dark:text-cream/50 hover:border-gold hover:text-gold transition-colors duration-500"
-      >
-        Traditional
-      </button>
-    </div>
+      </div>
 
     <!-- ── CARDS GRID ── -->
     <main
@@ -637,51 +620,7 @@
             </p>
           </div>
         </div>
-        <!-- 4. Angkor Silk Farm -->
-        <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
-          data-category="nature"
-          onclick="openModal('Angkor Silk Farm')"
-        >
-          <div class="relative overflow-hidden aspect-4/3">
-            <img
-              src="https://d122axpxm39woi.cloudfront.net/images/destinations/origin/5614d166b390e.jpg"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
-            />
-            <div
-              class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
-            ></div>
-            <span
-              class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
-              >Nature</span
-            >
-          </div>
-          <div class="px-5 py-4">
-            <p
-              class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-1"
-            >
-              Siem Reap · Cambodia
-            </p>
-            <h3
-              class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
-            >
-              Angkor Silk Farm
-            </h3>
-            <p
-              class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
-            >
-              “The Angkor Silk Farm" is a social enterprise in Siem Reap that
-              offers an immersive look at the traditional Khmer silk-making
-              process.
-            </p>
-            <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
-            >
-              View details →
-            </p>
-          </div>
-        </div>
+
         <!-- 5. Kbal Spean -->
         <div
           class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
@@ -773,15 +712,17 @@
             </p>
           </div>
         </div>
-        <!-- city part -->
+        <!-- Cultural part -->
+
+        <!-- 1. Pub Street -->
         <div
           class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
-          data-category="city"
+          data-category="cultural"
           onclick="openModal('Pub Street')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
-              src="https://c8.alamy.com/comp/MA8B6A/siem-reap-cambodia-10-january-2018-people-walking-on-illuminated-pub-street-in-siem-reap-cambodia-MA8B6A.jpg"
+              src="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/490958365_1307435950839394_2888605247219250192_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHxPxENdI5xut8nRUwVmFvunx4hKTgi766fHiEpOCLvrlBDJMK-t0yy4izj0Thq7E7YP5HVnAfSoj89cuksW7Jn&_nc_ohc=4rO9Yph499EQ7kNvwEAxlsW&_nc_oc=AdoLdHzQ0DHLTg7Y7EoMPYh-LBvWgEV4G1Kt1P7QpiVFKgK3Qyx1Ac2rpXLW4G8UED8&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=PMc2JYfF4sqoUDITvA-_Xg&_nc_ss=7b2a8&oh=00_Af5Le2wGqJF5e4lbVv9c_9kPBjaU3tf8Nzl_3g8JxtdJ2Q&oe=6A00909F"
               alt="Tole-sap"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
             />
@@ -790,7 +731,7 @@
             ></div>
             <span
               class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
-              >City</span
+              >Cultural</span
             >
           </div>
           <div class="px-5 py-4">
@@ -818,17 +759,17 @@
             </p>
           </div>
         </div>
-        <!-- Traditional part -->
-        <!-- 1. Apsara Dance -->
+
+        <!-- 2. Angkor Silk Farm -->
         <div
           class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
-          data-category="tradition"
-          onclick="openModal('Apsara Dance')"
+          data-category="cultural"
+          onclick="openModal('Angkor Silk Farm')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Danseuses_kmer_%282%29.JPG/1280px-Danseuses_kmer_%282%29.JPG"
-              alt="Tole-sap"
+              src="https://d122axpxm39woi.cloudfront.net/images/destinations/origin/5614d166b390e.jpg"
+              alt="Angkor Silk Farm"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
             />
             <div
@@ -836,7 +777,7 @@
             ></div>
             <span
               class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
-              >Traditional</span
+              >Cultural</span
             >
           </div>
           <div class="px-5 py-4">
@@ -848,14 +789,14 @@
             <h3
               class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
             >
-              Apsara Dance
+              Angkor Silk Farm
             </h3>
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “Apsara Dance" is a form of Khmer classical dance originating from
-              Cambodia, inspired by the celestial nymphs (apsaras) depicted in
-              ancient Angkorian temple carvings.
+              “The Angkor Silk Farm" is a social enterprise in Siem Reap that
+              offers an immersive look at the traditional Khmer silk-making
+              process.
             </p>
             <p
               class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
@@ -864,16 +805,17 @@
             </p>
           </div>
         </div>
-        <!-- 2. Khmer New Year -->
+
+        <!-- 3. Preah Dak Village -->
         <div
           class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
-          data-category="tradition"
-          onclick="openModal('Khmer New Year')"
+          data-category="cultural"
+          onclick="openModal('Preah Dak Village')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3h90kt0fLIy2BVlpA9THSA6UTds3r-eQXW1m-ddbH6i14EIi7hH0K08bDaU7OhcJ4fIcAuuExrPJ-oW2CWF7DUPX5rlknXGX3bRJGdpcYGc0-i88ulCXdBP2emxNLaiV54nnioYljO5DAvj1orTWf2vDUHoUzJVCkOEL8XEAdteW-iX6wFsSsKewNUFI/s1600/Khmer-New-Year---What-Tourists-Need-to-Know-Before-Visiting-in-April.jpg"
-              alt="Tole-sap"
+              src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Products-Preah-Dak-Vilalge-768x504.png"
+              alt="Preah Dak"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
             />
             <div
@@ -881,7 +823,7 @@
             ></div>
             <span
               class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
-              >Traditional</span
+              >Cultural</span
             >
           </div>
           <div class="px-5 py-4">
@@ -893,15 +835,15 @@
             <h3
               class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
             >
-              Khmer New Year
+              Preah Dak Village
             </h3>
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “Khmer New Year", or Choul Chnam Thmey (meaning "Enter the New
-              Year"), is Cambodia's most significant traditional festival. In
-              2026, the official celebration is scheduled from Tuesday, April 14
-              to Thursday, April 16.
+              Located 15 km northeast of Siem Reap, "Preah Dak" is a charming
+              rural village famous for its traditional palm cakes, Khmer
+              noodles, and eco-friendly crafts. It offers travelers an authentic
+              and serene look into Cambodian countryside life.
             </p>
             <p
               class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
@@ -910,189 +852,8 @@
             </p>
           </div>
         </div>
-        <!-- 3.Almsgiving (Dak Bat) -->
-        <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
-          data-category="tradition"
-          onclick="openModal('Almsgiving')"
-        >
-          <div class="relative overflow-hidden aspect-4/3">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJoeGx8JtbU5J2seuQ0Tnp_1nInrA8Ex-uNQ&s"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
-            />
-            <div
-              class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
-            ></div>
-            <span
-              class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
-              >Traditional</span
-            >
-          </div>
-          <div class="px-5 py-4">
-            <p
-              class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-1"
-            >
-              Siem Reap · Cambodia
-            </p>
-            <h3
-              class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
-            >
-              Almsgiving (Dak Bat)
-            </h3>
-            <p
-              class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
-            >
-              In Cambodia, almsgiving (Dak Bat) is a cornerstone of the Khmer
-              New Year, representing a spiritual transition where individuals
-              earn merit and seek blessings for the upcoming year
-            </p>
-            <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
-            >
-              View details →
-            </p>
-          </div>
-        </div>
-        <!-- 4. Lakhon Khol -->
-        <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
-          data-category="tradition"
-          onclick="openModal('Lakhon Khol')"
-        >
-          <div class="relative overflow-hidden aspect-4/3">
-            <img
-              src="https://pbs.twimg.com/media/DlwRETsUUAAcAHl.jpg"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
-            />
-            <div
-              class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
-            ></div>
-            <span
-              class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
-              >Tranditional</span
-            >
-          </div>
-          <div class="px-5 py-4">
-            <p
-              class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-1"
-            >
-              Siem Reap · Cambodia
-            </p>
-            <h3
-              class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
-            >
-              Lakhon Khol
-            </h3>
-            <p
-              class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
-            >
-              “Lakhon Khol" (ល្ខោនខោល) is a sacred Cambodian masked theatre
-              tradition that dates back to the Angkorian period, possibly as
-              early as the 10th century.
-            </p>
-            <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
-            >
-              View details →
-            </p>
-          </div>
-        </div>
-        <!-- 5. Amok (traditional food) -->
-        <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
-          data-category="tradition"
-          onclick="openModal('tradition')"
-        >
-          <div class="relative overflow-hidden aspect-4/3">
-            <img
-              src="https://www.cambodiaembassyuk.org/wp-content/uploads/2022/02/Fish-Amok-Recipe-.webp"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
-            />
-            <div
-              class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
-            ></div>
-            <span
-              class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
-              >Traditional</span
-            >
-          </div>
-          <div class="px-5 py-4">
-            <p
-              class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-1"
-            >
-              Siem Reap · Cambodia
-            </p>
-            <h3
-              class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
-            >
-              Amok (traditional food)
-            </h3>
-            <p
-              class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
-            >
-              “Fish Amok" (or Amok Trey) is a traditional Cambodian steamed fish
-              curry considered one of the country's national dishes. It is a
-              fragrant, creamy delicacy known for its silky, mousse-like
-              consistency.
-            </p>
-            <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
-            >
-              View details →
-            </p>
-          </div>
-        </div>
-        <!-- 6. Khmer Traditional Wedding -->
-        <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
-          data-category="tradition"
-          onclick="openModal('tradition')"
-        >
-          <div class="relative overflow-hidden aspect-4/3">
-            <img
-              src="https://images.openai.com/static-rsc-4/HN6o4jS7v1ll269gVyVpeaNq-_-Mt1CbQE4cvKy9mr7ck22U1Sw74ltkG774A9-sM3WdkDOfgMF1gf7OGnzauT_lz2UMQ1TmEOwObRkDt6VL4UagoAFw81eZzjW5vn61DhH2vLKJSIX1mbp3CIT4xeG7mYdRI6OWlTl2WGAqwHM8KdQL1M89rFMUkWW6mL2s?purpose=fullsize"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
-            />
-            <div
-              class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
-            ></div>
-            <span
-              class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
-              >Traditional</span
-            >
-          </div>
-          <div class="px-5 py-4">
-            <p
-              class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-1"
-            >
-              Siem Reap · Cambodia
-            </p>
-            <h3
-              class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
-            >
-              Khmer Traditional Wedding
-            </h3>
-            <p
-              class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
-            >
-              “A traditional Khmer wedding" is a vibrant, multi-day celebration
-              deeply rooted in Buddhist traditions and ancient legends. While
-              historically lasting three days and three nights, modern
-              ceremonies are often condensed into one and a half or two days.
-            </p>
-            <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
-            >
-              View details →
-            </p>
-          </div>
-        </div>
-      </div>
+
+ 
     </main>
 
     <!-- ── MODAL ── -->
