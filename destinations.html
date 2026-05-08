@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+<<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +10,8 @@
         display: flex;
       }
       #menu-toggle.open .hamburger-line:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    !doctype html>
+    transform: translateY(8px) rotate(45deg);
       }
       #menu-toggle.open .hamburger-line:nth-child(2) {
         opacity: 0;
@@ -853,6 +853,51 @@
           </div>
         </div>
 
+<!-- 4. Old Market (Phsar Chas) -->
+<div
+  class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+  data-category="cultural"
+  onclick="openModal('phsar-chas')"
+>
+  <div class="relative overflow-hidden aspect-4/3">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Siem_Reap_-_Old_Market_-_0003.jpg/1280px-Siem_Reap_-_Old_Market_-_0003.jpg"
+      alt="Old Market Phsar Chas"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+    />
+    <div
+      class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
+    ></div>
+    <span
+      class="absolute top-3 right-3 font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/75 px-2.5 py-1"
+      >Cultural</span
+    >
+  </div>
+  <div class="px-5 py-4">
+    <p
+      class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-1"
+    >
+      Siem Reap · Cambodia
+    </p>
+    <h3
+      class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
+    >
+      Old Market (Phsar Chas)
+    </h3>
+    <p
+      class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
+    >
+      The beating heart of Siem Reap — a sprawling traditional market
+      overflowing with local street food, handmade crafts, silk scarves,
+      and the colours of everyday Cambodian life.
+    </p>
+    <p
+      class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+    >
+      View details →
+    </p>
+  </div>
+</div>
  
     </main>
 
@@ -1233,7 +1278,30 @@
           "Excellent condition with many carvings perfectly preserved",
         ],
       },
+      "phsar-chas": {
+  title: "Old Market (Phsar Chas)",
+  location: "Siem Reap · Cambodia",
+  category: "Cultural",
+  image:
+    "https://helloangkor.com/wp-content/uploads/2019/03/old-market.jpg",
+  description:
+    "Phsar Chas — meaning 'Old Market' — is the vibrant commercial soul of Siem Reap, operating since the French colonial era. Nestled beside the Siem Reap River, it overflows with stalls selling fresh produce, aromatic spices, handwoven silk, silver jewellery, and traditional Khmer street food. It is the most authentic shopping and cultural experience the city has to offer.",
+  tags: ["Local Market", "Street Food", "Shopping", "Cultural"],
+  info: [
+    { label: "Location", value: "Riverside, Siem Reap city centre" },
+    { label: "Entry Fee", value: "Free" },
+    { label: "Opening Hours", value: "6:00 AM – 9:00 PM daily" },
+    { label: "Best Time to Visit", value: "Early morning for fresh produce" },
+  ],
+  highlights: [
+    "Fresh tropical fruit, spices, and local Khmer street food stalls",
+    "Handwoven silk scarves, kramas, and traditional crafts",
+    "Silver jewellery and Angkor-motif souvenirs",
+    "Colonial-era iron-roof architecture full of character",
+  ],
+},
     };
+    
 
     /* ── Open modal ── */
     function openModal(id) {
