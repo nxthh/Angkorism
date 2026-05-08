@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog & Travel Tips – Angkorism</title>
+    <link rel="stylesheet" href="src/output.css" />
+    <link rel="icon" type="image/png" href="./assets/angkorism.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    class="bg-cream dark:bg-deep text-deep dark:text-cream transition-colors duration-500"
+  >
+    <!-- ── NAVBAR (matches other pages) ── -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-40 px-4 sm:px-8 lg:px-16 py-4 sm:py-5"
+    >
+      <div
+        class="max-w-6xl mx-auto flex items-center justify-between bg-cream/80 dark:bg-deep/80 backdrop-blur-md border border-gold/20 rounded-full px-6 py-3 shadow-sm"
+      >
+        <!-- Logo -->
+        <a
+          href="index.html"
+          class="font-['Playfair_Display'] text-xl font-bold text-deep dark:text-cream tracking-wide"
+          >Angkorism</a
+        >
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            href="index.html"
+            class="font-['Lato'] text-sm uppercase tracking-widest text-deep/60 dark:text-cream/60 hover:text-gold transition-colors duration-300"
+            >Home</a
+          >
+          <a
+            href="destinations.html"
+            class="font-['Lato'] text-sm uppercase tracking-widest text-deep/60 dark:text-cream/60 hover:text-gold transition-colors duration-300"
+            >Destinations</a
+          >
+          <a
+            href="gallery.html"
+            class="font-['Lato'] text-sm uppercase tracking-widest text-deep/60 dark:text-cream/60 hover:text-gold transition-colors duration-300"
+            >Gallery</a
+          >
+          <a
+            href="about.html"
+            class="font-['Lato'] text-sm uppercase tracking-widest text-deep/60 dark:text-cream/60 hover:text-gold transition-colors duration-300"
+            >About Us</a
+          >
+          <a
+            href="blog.html"
+            class="font-['Lato'] text-sm uppercase tracking-widest text-gold border-b border-gold pb-0.5 transition-colors duration-300"
+            >Blog</a
+          >
+        </div>
+
+        <!-- Dark mode toggle -->
+        <button
+          id="theme-toggle"
+          class="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center text-deep dark:text-cream hover:border-gold transition-all duration-300"
+          aria-label="Toggle dark mode"
+        >
+          <i class="fa-solid fa-moon text-sm dark:hidden"></i>
+          <i class="fa-solid fa-sun text-sm hidden dark:block"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <header class="relative pt-[72px]">
+      <div
+        class="relative h-[40vh] sm:h-[50vh] flex items-center justify-center overflow-hidden"
+      >
+        <img
+          src="./assets/hero.jpg"
+          alt="Angkor Wat at sunrise"
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        />
+        <div class="absolute inset-0 bg-black/55"></div>
+        <div class="relative z-10 text-center px-4">
+          <p
+            class="font-['Lato'] uppercase tracking-[0.25em] text-gold text-xs sm:text-sm mb-3"
+          >
+            Stories & Insights
+          </p>
+          <h1
+            class="font-['Playfair_Display'] text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight"
+          >
+            Blog &<br /><span class="text-white">Travel Tips</span>
+          </h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="bg-cream dark:bg-deep px-4 sm:px-8 lg:px-16 py-12 sm:py-16 transition-colors duration-500">
+
+      <!-- ── FEATURED ARTICLE ── -->
+      <section class="max-w-6xl mx-auto mb-16">
+        <p class="font-['Lato'] uppercase tracking-[0.2em] text-[11px] font-bold text-gold mb-6">
+          Featured Story
+        </p>
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-gold/30 overflow-hidden group cursor-pointer hover:border-gold transition-all duration-500"
+        >
+          <div class="relative h-64 lg:h-auto overflow-hidden">
+            <img
+              src="https://i.pinimg.com/1200x/ed/bf/73/edbf7353393cc3d039792dc89a0dd4b6.jpg"
+              alt="Angkor Wat"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-black/20"></div>
+          </div>
+          <div class="p-8 sm:p-10 flex flex-col justify-center bg-cream dark:bg-deep transition-colors duration-500">
+            <span
+              class="inline-block font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold border border-gold/40 px-3 py-1 mb-5 w-fit"
+              >Temples & History</span
+            >
+            <h2
+              class="font-['Playfair_Display'] text-2xl sm:text-3xl font-semibold text-deep dark:text-cream mb-4 transition-colors duration-500"
+            >
+              Angkor Wat: The World's Largest Religious Monument
+            </h2>
+            <p
+              class="font-['Lato'] text-sm text-deep/60 dark:text-cream/60 leading-relaxed mb-6 transition-colors duration-500"
+            >
+              Built in the early 12th century by King Suryavarman II, Angkor Wat spans over 400 acres and took more than 30 years to construct. Discover the hidden symbolism carved into every stone, the astronomical alignments of its towers, and why millions of pilgrims have journeyed here for nearly a thousand years.
+            </p>
+            <div class="flex items-center gap-4">
+              <p class="font-['Lato'] text-[11px] text-deep/40 dark:text-cream/40 uppercase tracking-widest">
+                May 2026 · 8 min read
+              </p>
+              <span class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold">
+                Read More →
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── ARTICLE GRID ── -->
+      <section class="max-w-6xl mx-auto">
+        <p class="font-['Lato'] uppercase tracking-[0.2em] text-[11px] font-bold text-gold mb-8">
+          Latest Articles
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Card 1 -->
+          <article
+            class="group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://i.pinimg.com/736x/44/c1/4f/44c14f5bdf21457f4e0a57139434c9fc.jpg"
+                alt="Bayon Temple"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+            <div class="px-5 py-5">
+              <span class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold">Temples & History</span>
+              <h3 class="font-['Playfair_Display'] text-lg font-semibold text-deep dark:text-cream mt-2 mb-2 transition-colors duration-500">
+                The 216 Faces of Bayon: Secrets of Angkor Thom
+              </h3>
+              <p class="font-['Lato'] text-sm text-deep/55 dark:text-cream/55 leading-relaxed mb-4 transition-colors duration-500">
+                Whose face smiles from every tower of Bayon? Scholars have debated for centuries whether these enigmatic faces depict the Buddha, King Jayavarman VII, or a divine synthesis of both.
+              </p>
+            <a href="bayon.html">Read More →</a>
+              <p class="font-['Lato'] text-[10px] text-deep/35 dark:text-cream/35 uppercase tracking-widest mt-2">Apr 2026 · 6 min read</p>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article
+            class="group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://imgs.search.brave.com/Ts-UJfQ8WmTq9FR0luSlQouqwYS6KwFNFxA8_q_s8n0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQ2/MzAxODM3Ni9waG90/by9hbmdrb3Itd2F0/LWNhbWJvZGlhLXRh/LXByb2htLWtobWVy/LXRlbXBsZS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9dk1O/NkdnT2Fpc0RiQTgw/VFhkcktySHJCVTlX/anU3enJOaEJQVnlY/Vm1wUT0"
+                alt="Ta Prohm"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+            <div class="px-5 py-5">
+              <span class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold">Temples & History</span>
+              <h3 class="font-['Playfair_Display'] text-lg font-semibold text-deep dark:text-cream mt-2 mb-2 transition-colors duration-500">
+                Ta Prohm: Where the Jungle Reclaims the Stone
+              </h3>
+              <p class="font-['Lato'] text-sm text-deep/55 dark:text-cream/55 leading-relaxed mb-4 transition-colors duration-500">
+                Unlike other restored temples, Ta Prohm was intentionally left in its overgrown state — a deliberate choice to show the world how nature and history intertwine in Cambodia.
+              </p>
+             <a href="taprohm.html">Read More →</a>
+              <p class="font-['Lato'] text-[10px] text-deep/35 dark:text-cream/35 uppercase tracking-widest mt-2">Apr 2026 · 5 min read</p>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article
+            class="group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://i.pinimg.com/1200x/a7/de/09/a7de09dce2059a76cf08dd4c599516c1.jpg"
+                alt="Banteay Srei"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+            <div class="px-5 py-5">
+              <span class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold">Temples & History</span>
+              <h3 class="font-['Playfair_Display'] text-lg font-semibold text-deep dark:text-cream mt-2 mb-2 transition-colors duration-500">
+                Banteay Srei: The Citadel of Women
+              </h3>
+              <p class="font-['Lato'] text-sm text-deep/55 dark:text-cream/55 leading-relaxed mb-4 transition-colors duration-500">
+                Carved from rose-pink sandstone and considered the jewel of Khmer art, Banteay Srei's intricate reliefs are so detailed that many believe only a woman's hands could have sculpted them.
+              </p>
+              <a href="banteaysrei.html">Read More →</a>
+              <p class="font-['Lato'] text-[10px] text-deep/35 dark:text-cream/35 uppercase tracking-widest mt-2">Mar 2026 · 7 min read</p>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article
+            class="group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://imgs.search.brave.com/sE1NnGlRb91wpGcUlkEt-Lx7wYhEIC-JwYVHtANNsRM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9hbmdr/b3ItcHJlYWgta2hh/bi05MjY0ODYwLmpw/Zw"
+                alt="Preah Khan"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+            <div class="px-5 py-5">
+              <span class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold">Temples & History</span>
+              <h3 class="font-['Playfair_Display'] text-lg font-semibold text-deep dark:text-cream mt-2 mb-2 transition-colors duration-500">
+                Preah Khan: The Sacred Sword of the King
+              </h3>
+              <p class="font-['Lato'] text-sm text-deep/55 dark:text-cream/55 leading-relaxed mb-4 transition-colors duration-500">
+                Built by Jayavarman VII to honour his father, Preah Khan served as both a Buddhist university and a royal city — housing over 1,000 teachers and nearly 100,000 officials and servants.
+              </p>
+              <a href="preahkhan.html">Read More →</a>
+              <p class="font-['Lato'] text-[10px] text-deep/35 dark:text-cream/35 uppercase tracking-widest mt-2">Mar 2026 · 6 min read</p>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article
+            class="group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://imgs.search.brave.com/azijlJpymKjP-MsYoRulE2ZtzC9lYFOf7evOedZtShQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50YWNkbi5jb20v/bWVkaWEvYXR0cmFj/dGlvbnMtc3BsaWNl/LXNwcC0zNjB4MjQw/LzA2LzczLzQzLzJj/LmpwZw"
+                alt="Phnom Kulen"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+            <div class="px-5 py-5">
+              <span class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold">Temples & History</span>
+              <h3 class="font-['Playfair_Display'] text-lg font-semibold text-deep dark:text-cream mt-2 mb-2 transition-colors duration-500">
+                Phnom Kulen: The Holy Mountain of the Khmer Empire
+              </h3>
+              <p class="font-['Lato'] text-sm text-deep/55 dark:text-cream/55 leading-relaxed mb-4 transition-colors duration-500">
+                It was here on this sacred plateau in 802 AD that King Jayavarman II declared himself a god-king and gave birth to the Khmer Empire — one of the greatest civilisations in Southeast Asian history.
+              </p>
+              <a href="phnomkulen.html">Read More →</a>
+              <p class="font-['Lato'] text-[10px] text-deep/35 dark:text-cream/35 uppercase tracking-widest mt-2">Feb 2026 · 8 min read</p>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article
+            class="group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="relative overflow-hidden aspect-video">
+              <img
+                src="https://i.pinimg.com/1200x/2d/3f/9c/2d3f9c4a33b30529a5be6b4d4232924c.jpg"
+                alt="Kbal Spean"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+            <div class="px-5 py-5">
+              <span class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold">Temples & History</span>
+              <h3 class="font-['Playfair_Display'] text-lg font-semibold text-deep dark:text-cream mt-2 mb-2 transition-colors duration-500">
+                Kbal Spean: The River of a Thousand Lingas
+              </h3>
+              <p class="font-['Lato'] text-sm text-deep/55 dark:text-cream/55 leading-relaxed mb-4 transition-colors duration-500">
+                Hidden deep in the Kulen Hills, an entire riverbed was carved by 11th-century Khmer craftsmen with hundreds of sacred lingas — so that the water flowing to Angkor would be eternally blessed.
+              </p>
+              <a href="kbalspean.html">Read More →</a>
+              <p class="font-['Lato'] text-[10px] text-deep/35 dark:text-cream/35 uppercase tracking-widest mt-2">Feb 2026 · 5 min read</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- ── FOOTER (matches other pages) ── -->
+    <footer
+      class="bg-[#0f0c09] px-4 sm:px-8 lg:px-16 py-12 sm:py-16 transition-colors duration-500"
+    >
+      <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10 mb-10">
+        <div>
+          <p class="font-['Playfair_Display'] text-xl font-bold text-cream mb-3">Angkorism</p>
+          <p class="font-['Lato'] text-sm text-cream/50 leading-relaxed">
+            Your guide to the ancient wonders of Siem Reap, Cambodia.
+          </p>
+        </div>
+        <div>
+          <p class="font-['Lato'] uppercase tracking-widest text-[11px] text-gold mb-4">Pages</p>
+          <div class="flex flex-col gap-2">
+            <a href="index.html" class="font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-300">Home</a>
+            <a href="destinations.html" class="font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-300">Destinations</a>
+            <a href="gallery.html" class="font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-300">Gallery</a>
+            <a href="about.html" class="font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-300">About Us</a>
+            <a href="blog.html" class="font-['Lato'] text-sm text-cream hover:text-gold transition-colors duration-300">Blog</a>
+          </div>
+        </div>
+        <div>
+          <p class="font-['Lato'] uppercase tracking-widest text-[11px] text-gold mb-4">Follow Us</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-cream/50 hover:text-gold transition-colors duration-300"><i class="fa-brands fa-facebook text-lg"></i></a>
+            <a href="#" class="text-cream/50 hover:text-gold transition-colors duration-300"><i class="fa-brands fa-instagram text-lg"></i></a>
+            <a href="#" class="text-cream/50 hover:text-gold transition-colors duration-300"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto border-t border-cream/10 pt-6">
+        <p class="font-['Lato'] text-xs text-cream/25 text-center">© 2026 Angkorism. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- ── DARK MODE SCRIPT ── -->
+    <script>
+      const toggle = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+      if (localStorage.getItem("theme") === "dark") root.classList.add("dark");
+      toggle.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
+      });
+    </script>
+  </body>
+</html>
