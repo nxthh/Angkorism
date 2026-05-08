@@ -1,11 +1,734 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angkor Wat — Angkorism</title>
+    <link rel="stylesheet" href="src/output.css" />
+    <style>
+      #mobile-menu.open {
+        display: flex;
+      }
+      #menu-toggle.open .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      #menu-toggle.open .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      #menu-toggle.open .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      .hamburger-line {
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+
+     <script>
+      (function () {
+        const isDark =
+          localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (isDark) document.documentElement.classList.add("dark");
+      })();
+    </script>
+  </head>
+
+  <body class="bg-cream dark:bg-deep transition-colors duration-500">
+    <!-- ── NAV ── -->
+    <nav class="fixed top-0 w-full z-20">
+      <div
+        class="py-4 flex items-center justify-between px-4 sm:px-8 bg-cream dark:bg-deep dark:text-cream backdrop-blur-xl transition-colors duration-500 lg:grid lg:grid-cols-3"
+      >
+        <div class="flex items-center text-2xl font-semibold">
+          <a
+            href="index.html"
+            class="no-underline text-deep dark:text-cream transition-colors duration-500"
+            ><h1>Angkorism</h1></a
+          >
+        </div>
+        <div
+          class="hidden lg:flex justify-center gap-8 border border-deep bg-deep/5 backdrop-blur-lg dark:bg-white/10 dark:border-white/20 px-3 py-3 rounded-full font-semibold text-deep dark:text-cream transition-colors duration-500"
+        >
+          <a
+            href="index.html"
+            class="hover:text-gold transition-colors duration-500"
+            >HOME</a
+          >
+          <a
+            href="destinations.html"
+            class="text-gold transition-colors duration-500"
+            >DESTINATIONS</a
+          >
+          <a
+            href="gallery.html"
+            class="hover:text-gold transition-colors duration-500"
+            >GALLERY</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-gold transition-colors duration-500"
+            >ABOUT US</a
+          >
+        </div>
+        <div class="flex items-center gap-3 lg:justify-end">
+          <button
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            class="relative w-10 h-10 rounded-full border border-gold bg-white/10 backdrop-blur-lg hover:border-gold/50 hover:bg-gold/20 transition-all duration-300 focus:outline-none flex items-center justify-center"
+          >
+            <svg
+              id="icon-moon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#1a1410"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg
+              id="icon-sun"
+              xmlns="http://www.w3.org/2000/svg"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 hidden"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#f5f0e8"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+          <button
+            id="menu-toggle"
+            onclick="toggleMenu()"
+            class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <span
+              class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"
+            ></span>
+            <span
+              class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"
+            ></span>
+            <span
+              class="hamburger-line block w-6 h-0.5 bg-deep dark:bg-cream"
+            ></span>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden flex-col bg-cream dark:bg-deep border-t border-gold/20 px-6 py-6 gap-5 font-semibold text-deep dark:text-cream transition-colors duration-500"
+      >
+        <a
+          href="index.html"
+          class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase"
+          >Home</a
+        >
+        <a
+          href="destinations.html"
+          class="text-gold text-sm tracking-widest uppercase"
+          >Destinations</a
+        >
+        <a
+          href="gallery.html"
+          class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase"
+          >Gallery</a
+        >
+        <a
+          href="about.html"
+          class="hover:text-gold transition-colors duration-300 text-sm tracking-widest uppercase"
+          >About Us</a
+        >
+      </div>
+    </nav>
+
+    <!-- ── HERO IMAGE ── -->
+    <div
+      class="relative w-full h-[55vh] sm:h-[65vh] lg:h-[75vh] overflow-hidden"
+    >
+      <img
+        src="https://cdn.britannica.com/49/94449-050-ECB0E7C2/Angkor-Wat-temple-complex-Cambodia.jpg"
+        alt="Angkor Wat"
+        class="w-full h-full object-cover"
+      />
+      <!-- Dark gradient overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70"
+      ></div>
+      <!-- Hero text pinned to bottom -->
+      <div
+        class="absolute bottom-0 left-0 right-0 px-4 sm:px-8 lg:px-16 pb-8 sm:pb-12"
+      >
+        <span
+          class="inline-block font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 bg-deep/60 px-2.5 py-1 mb-3"
+          >Temple</span
+        >
+        <h1
+          class="font-['Playfair_Display'] text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2"
+        >
+          Angkor Wat
+        </h1>
+        <p
+          class="font-['Lato'] text-sm font-bold uppercase tracking-[0.25em] text-gold"
+        >
+          Siem Reap · Cambodia
+        </p>
+      </div>
+    </div>
+
+    <!-- ── BREADCRUMB ── -->
+    <div
+      class="bg-cream dark:bg-deep border-b border-gold/20 px-4 sm:px-8 lg:px-16 py-3 transition-colors duration-500"
+    >
+      <p class="font-['Lato'] text-xs text-deep/40 dark:text-cream/40">
+        <a
+          href="destinations.html"
+          class="hover:text-gold transition-colors duration-200"
+          >Destinations</a
+        >
+        <span class="mx-2">›</span>
+        <span class="text-deep/70 dark:text-cream/70">Angkor Wat</span>
+      </p>
+    </div>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="bg-cream dark:bg-deep transition-colors duration-500">
+      <div class="px-4 sm:px-8 lg:px-16 py-10 sm:py-14 max-w-screen-xl mx-auto">
+        <!-- Two-column layout on desktop -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
+          <!-- LEFT: main content -->
+          <div class="lg:col-span-2">
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span
+                class="font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/40 px-2.5 py-1"
+                >UNESCO World Heritage</span
+              >
+              <span
+                class="font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/40 px-2.5 py-1"
+                >Khmer Architecture</span
+              >
+              <span
+                class="font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/40 px-2.5 py-1"
+                >Must See</span
+              >
+            </div>
+
+            <!-- Description -->
+            <p
+              class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-3"
+            >
+              About This Destination
+            </p>
+            <p
+              class="font-['Lato'] text-base sm:text-[17px] leading-relaxed text-deep/75 dark:text-cream/75 mb-5 transition-colors duration-500"
+            >
+              Angkor Wat is the largest religious monument in the world, built
+              in the early 12th century by King Suryavarman II. Originally a
+              Hindu temple dedicated to Vishnu, it gradually became a Theravada
+              Buddhist temple. Its five iconic lotus towers represent the peaks
+              of Mount Meru, the home of the gods in Hindu cosmology.
+            </p>
+            <p
+              class="font-['Lato'] text-base sm:text-[17px] leading-relaxed text-deep/75 dark:text-cream/75 mb-10 transition-colors duration-500"
+            >
+              The complex is surrounded by a vast 190-metre wide moat and
+              features over 800 metres of intricate bas-relief galleries — among
+              the largest and most exquisite examples of classical Khmer art in
+              existence. The temple covers 162.6 hectares, and the outer wall
+              alone stretches 1,025 metres by 800 metres. Declared a UNESCO
+              World Heritage Site in 1992, it remains Cambodia's most iconic
+              landmark and the symbol on its national flag.
+            </p>
+
+            <!-- Highlights -->
+            <p
+              class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-4"
+            >
+              Top Highlights
+            </p>
+            <div class="space-y-3 mb-12">
+              <div class="flex gap-3 items-start">
+                <span class="text-gold flex-shrink-0 mt-1">✦</span>
+                <div>
+                  <p
+                    class="font-['Lato'] font-bold text-sm text-deep dark:text-cream mb-0.5 transition-colors duration-500"
+                  >
+                    Sunrise over the Lotus Ponds
+                  </p>
+                  <p
+                    class="font-['Lato'] text-sm text-deep/60 dark:text-cream/60 leading-relaxed transition-colors duration-500"
+                  >
+                    Arrive before 5 AM for the golden reflection of the towers
+                    in the reflection pools — one of the most photographed
+                    moments in Southeast Asia.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-gold flex-shrink-0 mt-1">✦</span>
+                <div>
+                  <p
+                    class="font-['Lato'] font-bold text-sm text-deep dark:text-cream mb-0.5 transition-colors duration-500"
+                  >
+                    Bas-Relief Gallery — Churning of the Ocean of Milk
+                  </p>
+                  <p
+                    class="font-['Lato'] text-sm text-deep/60 dark:text-cream/60 leading-relaxed transition-colors duration-500"
+                  >
+                    A 49-metre panel depicting one of Hinduism's greatest
+                    creation myths, carved in extraordinary detail across the
+                    eastern gallery.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-gold flex-shrink-0 mt-1">✦</span>
+                <div>
+                  <p
+                    class="font-['Lato'] font-bold text-sm text-deep dark:text-cream mb-0.5 transition-colors duration-500"
+                  >
+                    Climb to the Central Tower
+                  </p>
+                  <p
+                    class="font-['Lato'] text-sm text-deep/60 dark:text-cream/60 leading-relaxed transition-colors duration-500"
+                  >
+                    The steep climb to the upper terrace rewards with panoramic
+                    views across the surrounding jungle and causeway.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-start">
+                <span class="text-gold flex-shrink-0 mt-1">✦</span>
+                <div>
+                  <p
+                    class="font-['Lato'] font-bold text-sm text-deep dark:text-cream mb-0.5 transition-colors duration-500"
+                  >
+                    Spring Equinox Solar Alignment
+                  </p>
+                  <p
+                    class="font-['Lato'] text-sm text-deep/60 dark:text-cream/60 leading-relaxed transition-colors duration-500"
+                  >
+                    During the equinox, the sun rises perfectly behind the
+                    central spire — a deliberate feat of ancient astronomical
+                    engineering.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Practical tips -->
+            <p
+              class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-4"
+            >
+              Practical Tips
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+              <div
+                class="border border-gold/20 dark:border-gold/10 p-4 bg-deep/3 dark:bg-white/3 transition-colors duration-500"
+              >
+                <p
+                  class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold mb-1"
+                >
+                  Dress Code
+                </p>
+                <p
+                  class="font-['Lato'] text-sm text-deep/65 dark:text-cream/65 leading-relaxed transition-colors duration-500"
+                >
+                  Shoulders and knees must be covered. Sarongs are available at
+                  the entrance if needed.
+                </p>
+              </div>
+              <div
+                class="border border-gold/20 dark:border-gold/10 p-4 bg-deep/3 dark:bg-white/3 transition-colors duration-500"
+              >
+                <p
+                  class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold mb-1"
+                >
+                  Best Season
+                </p>
+                <p
+                  class="font-['Lato'] text-sm text-deep/65 dark:text-cream/65 leading-relaxed transition-colors duration-500"
+                >
+                  November to February offers the coolest weather and clearest
+                  skies for photography.
+                </p>
+              </div>
+              <div
+                class="border border-gold/20 dark:border-gold/10 p-4 bg-deep/3 dark:bg-white/3 transition-colors duration-500"
+              >
+                <p
+                  class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold mb-1"
+                >
+                  Getting There
+                </p>
+                <p
+                  class="font-['Lato'] text-sm text-deep/65 dark:text-cream/65 leading-relaxed transition-colors duration-500"
+                >
+                  10–15 minute tuk-tuk ride from central Siem Reap. Bicycle hire
+                  is also popular.
+                </p>
+              </div>
+              <div
+                class="border border-gold/20 dark:border-gold/10 p-4 bg-deep/3 dark:bg-white/3 transition-colors duration-500"
+              >
+                <p
+                  class="font-['Lato'] text-[10px] font-bold uppercase tracking-widest text-gold mb-1"
+                >
+                  Guided Tours
+                </p>
+                <p
+                  class="font-['Lato'] text-sm text-deep/65 dark:text-cream/65 leading-relaxed transition-colors duration-500"
+                >
+                  Licensed guides are available at the gate and add immense
+                  context to the bas-reliefs and temple history.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: info sidebar -->
+          <div class="lg:col-span-1">
+            <div
+              class="border border-gold/30 dark:border-gold/15 bg-deep/3 dark:bg-white/3 p-6 mb-6 transition-colors duration-500 "
+            >
+              <p
+                class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-4"
+              >
+                Quick Info
+              </p>
+              <div class="space-y-0">
+                <div
+                  class="flex justify-between items-center py-3 border-b border-deep/10 dark:border-white/[0.07]"
+                >
+                  <span
+                    class="font-['Lato'] text-xs text-deep/45 dark:text-cream/45 uppercase tracking-wider"
+                    >Built</span
+                  >
+                  <span
+                    class="font-['Lato'] text-sm font-bold text-deep dark:text-cream text-right transition-colors duration-500"
+                    >1113 – 1150 AD</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center py-3 border-b border-deep/10 dark:border-white/[0.07]"
+                >
+                  <span
+                    class="font-['Lato'] text-xs text-deep/45 dark:text-cream/45 uppercase tracking-wider"
+                    >Founded By</span
+                  >
+                  <span
+                    class="font-['Lato'] text-sm font-bold text-deep dark:text-cream text-right transition-colors duration-500"
+                    >King Suryavarman II</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center py-3 border-b border-deep/10 dark:border-white/[0.07]"
+                >
+                  <span
+                    class="font-['Lato'] text-xs text-deep/45 dark:text-cream/45 uppercase tracking-wider"
+                    >Entry Fee</span
+                  >
+                  <span
+                    class="font-['Lato'] text-sm font-bold text-deep dark:text-cream text-right transition-colors duration-500"
+                    >$37 USD (1-Day Pass)</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center py-3 border-b border-deep/10 dark:border-white/[0.07]"
+                >
+                  <span
+                    class="font-['Lato'] text-xs text-deep/45 dark:text-cream/45 uppercase tracking-wider"
+                    >Opening Hours</span
+                  >
+                  <span
+                    class="font-['Lato'] text-sm font-bold text-deep dark:text-cream text-right transition-colors duration-500"
+                    >5:00 AM – 6:00 PM</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center py-3 border-b border-deep/10 dark:border-white/[0.07]"
+                >
+                  <span
+                    class="font-['Lato'] text-xs text-deep/45 dark:text-cream/45 uppercase tracking-wider"
+                    >Best Visit</span
+                  >
+                  <span
+                    class="font-['Lato'] text-sm font-bold text-deep dark:text-cream text-right transition-colors duration-500"
+                    >Sunrise — before 5 AM</span
+                  >
+                </div>
+                <div class="flex justify-between items-center py-3">
+                  <span
+                    class="font-['Lato'] text-xs text-deep/45 dark:text-cream/45 uppercase tracking-wider"
+                    >UNESCO</span
+                  >
+                  <span
+                    class="font-['Lato'] text-sm font-bold text-deep dark:text-cream text-right transition-colors duration-500"
+                    >Since 1992</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Related destinations -->
+            <div>
+              <p
+                class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-4"
+              >
+                Nearby Destinations
+              </p>
+              <div class="space-y-3">
+                <a
+                  href="dest-bayon.html"
+                  class="group flex gap-3 items-center border border-gold/20 hover:border-gold p-3 transition-colors duration-300 bg-cream dark:bg-[#1e1810]"
+                >
+                  <img
+                    src="https://www.siemreap.net/wp-content/uploads/2019/02/Bayon-Siem-Reap-Cambodia.jpg.webp"
+                    alt="Bayon"
+                    class="w-16 h-14 object-cover flex-shrink-0"
+                  />
+                  <div>
+                    <p
+                      class="font-['Playfair_Display'] text-sm font-semibold text-deep dark:text-cream group-hover:text-gold transition-colors duration-300"
+                    >
+                      Bayon Temple
+                    </p>
+                    <p
+                      class="font-['Lato'] text-[11px] text-deep/45 dark:text-cream/45"
+                    >
+                      Angkor Thom, Siem Reap
+                    </p>
+                  </div>
+                </a>
+                <a
+                  href="dest-ta-prohm.html"
+                  class="group flex gap-3 items-center border border-gold/20 hover:border-gold p-3 transition-colors duration-300 bg-cream dark:bg-[#1e1810]"
+                >
+                  <img
+                    src="https://www.vietvisionholidays.com/wp-content/uploads/2025/01/Ta-Prohm-2.jpg"
+                    alt="Ta Prohm"
+                    class="w-16 h-14 object-cover flex-shrink-0"
+                  />
+                  <div>
+                    <p
+                      class="font-['Playfair_Display'] text-sm font-semibold text-deep dark:text-cream group-hover:text-gold transition-colors duration-300"
+                    >
+                      Ta Prohm
+                    </p>
+                    <p
+                      class="font-['Lato'] text-[11px] text-deep/45 dark:text-cream/45"
+                    >
+                      Siem Reap, Cambodia
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back button -->
+        <div class="mt-8 pt-8 border-t border-gold/20">
+          <a
+            href="destinations.html"
+            class="inline-block font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold border border-gold px-6 py-2.5 bg-transparent hover:bg-gold/10 transition-colors duration-200"
+            >← Back to Destinations</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="bg-[#0f0c09] px-4 sm:px-8 lg:px-16 py-12 sm:py-16">
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 pb-10 sm:pb-12 border-b border-gold/20 mb-8"
+      >
+        <div>
+          <h2
+            class="font-['Playfair_Display'] text-2xl font-bold text-cream mb-3"
+          >
+            Angkorism
+          </h2>
+          <p
+            class="font-['Lato'] text-sm text-cream/40 leading-relaxed max-w-50"
+          >
+            Your guide to the ancient wonders and timeless beauty of Cambodia's
+            most treasured destinations.
+          </p>
+        </div>
+        <div>
+          <h4
+            class="font-['Lato'] uppercase tracking-[0.2em] text-[11px] font-semibold text-gold mb-4"
+          >
+            Explore
+          </h4>
+          <a
+            href="destinations.html"
+            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
+            >Destinations</a
+          >
+          <a
+            href="gallery.html"
+            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
+            >Gallery</a
+          >
+        </div>
+        <div>
+          <h4
+            class="font-['Lato'] uppercase tracking-[0.2em] text-[11px] font-semibold text-gold mb-4"
+          >
+            Visit
+          </h4>
+          <a
+            href="dest-angkor-wat.html"
+            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
+            >Angkor Wat</a
+          >
+          <a
+            href="dest-bayon.html"
+            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
+            >Bayon Temple</a
+          >
+          <a
+            href="dest-ta-prohm.html"
+            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
+            >Ta Prohm</a
+          >
+        </div>
+        <div>
+          <h4
+            class="font-['Lato'] uppercase tracking-[0.2em] text-[11px] font-semibold text-gold mb-4"
+          >
+            About
+          </h4>
+          <a
+            href="about.html"
+            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
+            >About Us</a
+          >
+          <a
+            href="#"
+            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
+            >Contact</a
+          >
+          <a
+            href="#"
+            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
+            >Privacy Policy</a
+          >
+        </div>
+      </div>
+      <div
+        class="flex flex-col sm:flex-row items-center sm:justify-between gap-4"
+      >
+        <p class="font-['Lato'] text-xs text-cream/25">
+          © 2026 Angkorism. All rights reserved.
+        </p>
+        <div class="flex gap-3">
+          <a
+            href="#"
+            aria-label="Instagram"
+            class="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center hover:border-gold transition-colors duration-200"
+            ><svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#c8a84b"
+              stroke-width="2"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1"
+                fill="#c8a84b"
+                stroke="none"
+              /></svg
+          ></a>
+          <a
+            href="#"
+            aria-label="Facebook"
+            class="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center hover:border-gold transition-colors duration-200"
+            ><svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#c8a84b"
+              stroke-width="2"
+            >
+              <path
+                d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+              /></svg
+          ></a>
+          <a
+            href="#"
+            aria-label="X"
+            class="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center hover:border-gold transition-colors duration-200"
+            ><svg width="14" height="14" viewBox="0 0 24 24" fill="#c8a84b">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              /></svg
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobile-menu").classList.toggle("open");
+      document.getElementById("menu-toggle").classList.toggle("open");
+    }
+    function applyTheme(isDark) {
+      const moon = document.getElementById("icon-moon");
+      const sun = document.getElementById("icon-sun");
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+        if (moon) moon.style.display = "none";
+        if (sun) sun.style.display = "block";
+      } else {
+        document.documentElement.classList.remove("dark");
+        if (sun) sun.style.display = "none";
+        if (moon) moon.style.display = "block";
+      }
+    }
+    function toggleTheme() {
+      const isDark = !document.documentElement.classList.contains("dark");
+      localStorage.theme = isDark ? "dark" : "light";
+      applyTheme(isDark);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const prefersDark =
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      applyTheme(prefersDark);
+    });
+  </script>
 </html>

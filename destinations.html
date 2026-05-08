@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Angkorism</title>
-
     <link rel="stylesheet" href="src/output.css" />
     <style>
       #mobile-menu.open {
@@ -31,6 +30,16 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
+
+     <script>
+      (function () {
+        const isDark =
+          localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (isDark) document.documentElement.classList.add("dark");
+      })();
+    </script>
   </head>
 
   <body class="bg-cream dark:bg-deep transition-colors duration-500">
@@ -155,7 +164,7 @@
       </div>
     </nav>
 
-    <!-- ── PAGE HEADER ── -->
+    <!-- PAGE HEADER -->
     <div
       class="pt-28 pb-10 px-4 sm:px-8 lg:px-16 bg-cream dark:bg-deep transition-colors duration-500"
     >
@@ -177,7 +186,7 @@
       </p>
     </div>
 
-    <!-- ── FILTER BAR ── -->
+    <!-- FILTER BAR -->
     <div
       class="bg-cream dark:bg-deep border-b border-gold dark:border-gold/20 px-4 sm:px-8 lg:px-16 pb-5 flex gap-3 flex-wrap transition-colors duration-500"
     >
@@ -205,9 +214,9 @@
       >
         Cultural
       </button>
-      </div>
+    </div>
 
-    <!-- ── CARDS GRID ── -->
+    <!-- CARDS GRID -->
     <main
       class="bg-cream dark:bg-deep px-4 sm:px-8 lg:px-16 py-10 sm:py-14 min-h-screen transition-colors duration-500"
     >
@@ -215,18 +224,18 @@
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         id="cards-grid"
       >
-        <!-- Card: Angkor Wat -->
-        <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+        <!-- Card: Angkor Wat — linked -->
+        <a
+          href="destinationDetails.html"
+          class="dest-card group block border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
           data-category="temple"
-          onclick="openModal('angkor-wat')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://cdn.britannica.com/49/94449-050-ECB0E7C2/Angkor-Wat-temple-complex-Cambodia.jpg"
               alt="Angkor Wat"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
-            />transition-all duration-300
+            />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
             ></div>
@@ -258,13 +267,13 @@
               View details →
             </p>
           </div>
-        </div>
+        </a>
 
-        <!-- Card: Bayon Temple -->
-        <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+        <!-- Card: Bayon Temple — linked -->
+        <a
+          href="dest-bayon.html"
+          class="dest-card group block border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
           data-category="temple"
-          onclick="openModal('bayon')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
@@ -303,13 +312,13 @@
               View details →
             </p>
           </div>
-        </div>
+        </a>
 
-        <!-- Card: Ta Prohm -->
-        <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+        <!-- Card: Ta Prohm — linked -->
+        <a
+          href="dest-ta-prohm.html"
+          class="dest-card group block border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
           data-category="temple"
-          onclick="openModal('ta-prohm')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
@@ -348,19 +357,18 @@
               View details →
             </p>
           </div>
-        </div>
+        </a>
 
-        <!-- Card: Preh Khan -->
+        <!-- Card: Preh Khan — no detail page (demo) -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="temple"
-          onclick="openModal('Preh-Khan')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_aZQgNNSv5MxVr4DAZdjwjvKX2Q0aWzGFXg&s"
-              alt=""
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              alt="Preh Khan"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -374,39 +382,37 @@
             <p
               class="font-['Lato'] uppercase tracking-[0.2em] text-[10px] font-semibold text-gold mb-1"
             >
-              SIEM REAP · Cambodia
+              Siem Reap · Cambodia
             </p>
             <h3
               class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
             >
-              Preh khan
+              Preh Khan
             </h3>
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              "Royal Sword," is a sprawling 12th-century monastic complex in
-              Angkor, Cambodia. Built by King Jayavarman VII in 1191, it was
-              dedicated to his father, Dharanindravarman II.
+              "Royal Sword," a sprawling 12th-century monastic complex built by
+              King Jayavarman VII in 1191.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
 
-        <!-- Card: Kulen  -->
+        <!-- Card: Kulen National Park — no detail page (demo) -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="temple"
-          onclick="openModal('kulen')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="http://khmerways.com/wp-content/uploads/2018/02/Kulen-National-Park-Waterfall-small.jpg"
               alt="Kulen National Park"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -434,24 +440,23 @@
               reclining Buddha.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
 
-        <!-- Card: Banteay Srei -->
+        <!-- Card: Banteay Srei — no detail page (demo) -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="temple"
-          onclick="openModal('banteay-srei')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP4gUvYV4pGMT8uIkhHOgMjtAFjvmHnxEWWg&s"
               alt="Banteay Srei"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -479,24 +484,23 @@
               carvings.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
-        <!-- Nature Parts -->
-        <!-- 1. Tonle-sap -->
+
+        <!-- Card: Tonle Sap -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="nature"
-          onclick="openModal('Tonle-sap')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://images.openai.com/static-rsc-4/sk8NkuWJuQtMniu8ZhVrYkXoCNKCvh0uIEYr0KS6ugKurmAQnEBylScMZkI9O4Ge19ZqIHnDn8o477-D3JNE8NcvrdmoLiGEKCYopCU6LpGqaePw5PUirpkusi_UY1dwYqmNBULhOf-KRbIZJCIf6T4exNYsn8y1iUTjzHzEws-tKSiR-d1W1lPPMySBM_XO?purpose=inline"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              alt="Tonle Sap"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -515,32 +519,32 @@
             <h3
               class="font-['Playfair_Display'] text-xl font-semibold text-deep dark:text-cream mb-2 transition-colors duration-500"
             >
-              Tonle-sap
+              Tonle Sap
             </h3>
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “Tonle Sap" Lake is the largest lake in Southeast Asia, famous for
-              floating villages and unique daily life on water.
+              The largest lake in Southeast Asia, famous for floating villages
+              and unique daily life on water.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
-        <!-- 2. Phnom Kulen -->
+
+        <!-- Card: Phnom Kulen -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="nature"
-          onclick="openModal('Tonle-sap')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://images.openai.com/static-rsc-4/BwcCEiFBtz6dP3LENBZoXlVwOtInXBth56XJ4KLAyHgnyuvB8Fbu60K7THVtFvnTbo9BJeOOaezNyFlMGzErTqpuDQs79VLs4_OmNjXb-UBW4Xn6nisa8H6l-bDIkMrvli1y7V3-becvpcwybqVmKDaEFtGRxMzmus2jfuHfyQBfjLLY-0HpmnkZj4DROvJF?purpose=inline"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              alt="Phnom Kulen"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -564,28 +568,27 @@
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “Phnom Kulen" is the most beautiful natural place in Siem Reap,
-              with waterfalls, jungle, and fresh air. It is perfect for relaxing
-              and adventure.
+              The most beautiful natural place in Siem Reap, with waterfalls,
+              jungle, and fresh air.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
-        <!-- 3. Angkor Botanical Garden -->
+
+        <!-- Card: Angkor Botanical Garden -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="nature"
-          onclick="openModal('Angkor-Botanical Garden')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/c9/20/94/front-gate-abg.jpg?w=900&h=500&s=1"
-              alt="Angkor-Botanical Garden"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              alt="Angkor Botanical Garden"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -609,29 +612,27 @@
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “The Angkor Botanical Garden" is a lush 15-hectare retreat in Siem
-              Reap, serving as a peaceful alternative to the busy temple crowds.
-              Opened in its expanded form in May 2022 .
+              A lush 15-hectare retreat in Siem Reap, a peaceful alternative to
+              the busy temple crowds.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
 
-        <!-- 5. Kbal Spean -->
+        <!-- Card: Kbal Spean -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="nature"
-          onclick="openModal('Kbal Spean')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://images.openai.com/static-rsc-4/P6IzP3RDrjga_f0MXCp-IQTmCLwfh26VRPnsUwV7Q765z3z8MOOZm87ijj7m9IifZXNhknuwfTFwLxyH5rtinecNhOWMaO40CBSIITr_XqcrajgpjT1VLXwYxSEzbUzzsWuvkEhQpu0EDjNNd7clzOeypNnTR4b8Wwih0orM9T9jkk-4GxOxR_B3q09Tg3ic?purpose=inline"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              alt="Kbal Spean"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -655,29 +656,27 @@
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “Kbal Spean", commonly known as the "River of a Thousand Lingas",
-              is an 11th-century Angkorian archaeological site located on the
-              slopes of the Kulen Hills, approximately 50 kilometers northeast
-              of Siem Reap.
+              The "River of a Thousand Lingas" — an 11th-century Angkorian
+              archaeological site in the Kulen Hills.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
-        <!-- 6. Banteay Srei Butterfly Centre -->
+
+        <!-- Card: Banteay Srei Butterfly Centre -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="nature"
-          onclick="openModal('Banteay Srei Butterfly Centre')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://images.openai.com/static-rsc-4/0ScHx6XIeHXLtSxSyWrzNofL_C2_273pKXMd6faJjO27OX4e4sfZwVfABmhbbK9Q5aoZaC94ck7QemCAnhZHUwKyLoPjbqVw0DQ6UyBbdrvdToLnvrdfmq8vakS7IJZ8uOjIcSTuRxqPwITWIucCDbUmnZaqA310JnSHs9Q9X8g?purpose=inline"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              alt="Banteay Srei Butterfly Centre"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -701,30 +700,27 @@
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “Banteay Srey Butterfly Centre" (BBC) is the largest enclosed
-              butterfly exhibit in Southeast Asia, located approximately 25 km
-              north of Siem Reap .
+              The largest enclosed butterfly exhibit in Southeast Asia, located
+              25 km north of Siem Reap.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
-        <!-- Cultural part -->
 
-        <!-- 1. Pub Street -->
+        <!-- Card: Pub Street -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="cultural"
-          onclick="openModal('Pub Street')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/490958365_1307435950839394_2888605247219250192_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHxPxENdI5xut8nRUwVmFvunx4hKTgi766fHiEpOCLvrlBDJMK-t0yy4izj0Thq7E7YP5HVnAfSoj89cuksW7Jn&_nc_ohc=4rO9Yph499EQ7kNvwEAxlsW&_nc_oc=AdoLdHzQ0DHLTg7Y7EoMPYh-LBvWgEV4G1Kt1P7QpiVFKgK3Qyx1Ac2rpXLW4G8UED8&_nc_zt=23&_nc_ht=scontent.fpnh10-1.fna&_nc_gid=PMc2JYfF4sqoUDITvA-_Xg&_nc_ss=7b2a8&oh=00_Af5Le2wGqJF5e4lbVv9c_9kPBjaU3tf8Nzl_3g8JxtdJ2Q&oe=6A00909F"
-              alt="Tole-sap"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              alt="Pub Street"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -748,29 +744,27 @@
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “Pub Street" in Siem Reap is the vibrant, pedestrian-only heart of
-              Cambodia's nightlife, packed with lively bars, restaurants, and
-              shops.
+              The vibrant, pedestrian-only heart of Cambodia's nightlife, packed
+              with lively bars, restaurants, and shops.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
 
-        <!-- 2. Angkor Silk Farm -->
+        <!-- Card: Angkor Silk Farm -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="cultural"
-          onclick="openModal('Angkor Silk Farm')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://d122axpxm39woi.cloudfront.net/images/destinations/origin/5614d166b390e.jpg"
               alt="Angkor Silk Farm"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -794,29 +788,27 @@
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              “The Angkor Silk Farm" is a social enterprise in Siem Reap that
-              offers an immersive look at the traditional Khmer silk-making
-              process.
+              A social enterprise offering an immersive look at the traditional
+              Khmer silk-making process.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
           </div>
         </div>
 
-        <!-- 3. Preah Dak Village -->
+        <!-- Card: Preah Dak Village -->
         <div
-          class="dest-card group cursor-pointer border border-gold/30 hover:border-gold bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+          class="dest-card group cursor-default border border-gold/30 bg-cream dark:bg-[#1e1810] overflow-hidden transition-all duration-500"
           data-category="cultural"
-          onclick="openModal('Preah Dak Village')"
         >
           <div class="relative overflow-hidden aspect-4/3">
             <img
               src="https://visitlocaltravel.com/blog/wp-content/uploads/2023/12/Products-Preah-Dak-Vilalge-768x504.png"
-              alt="Preah Dak"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              alt="Preah Dak Village"
+              class="w-full h-full object-cover pointer-events-none"
             />
             <div
               class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent"
@@ -840,111 +832,24 @@
             <p
               class="font-['Lato'] text-sm text-deep/50 dark:text-cream/50 leading-relaxed mb-3 transition-colors duration-500"
             >
-              Located 15 km northeast of Siem Reap, "Preah Dak" is a charming
-              rural village famous for its traditional palm cakes, Khmer
-              noodles, and eco-friendly crafts. It offers travelers an authentic
-              and serene look into Cambodian countryside life.
+              A charming rural village famous for traditional palm cakes, Khmer
+              noodles, and eco-friendly crafts.
             </p>
             <p
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold"
+              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold/40"
             >
-              View details →
+              Coming soon
             </p>
-          </div>
-        </div>
-
- 
-    </main>
-
-    <!-- ── MODAL ── -->
-    <!-- Backdrop -->
-    <div
-      id="modal-backdrop"
-      class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
-      onclick="handleBackdropClick(event)"
-    >
-      <!-- Panel -->
-      <div
-        id="modal-panel"
-        class="relative bg-cream dark:bg-deep border border-gold/30 w-full max-w-3xl max-h-[90vh] sm:max-h-[90vh] overflow-y-auto mx-auto translate-y-6 transition-transform duration-300"
-      >
-        <!-- Image -->
-        <div class="relative h-72 overflow-hidden">
-          <img
-            id="modal-img"
-            src=""
-            alt=""
-            class="w-full h-full object-cover pointer-events-none"
-          />
-
-          <!-- Close button -->
-          <button
-            onclick="closeModal()"
-            class="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center bg-cream/80 dark:bg-deep/80 border border-gold/40 text-deep dark:text-cream text-base cursor-pointer hover:bg-gold/20 transition-colors duration-200"
-          >
-            ✕
-          </button>
-        </div>
-
-        <!-- Body -->
-        <div class="px-4 sm:px-8 py-5 sm:py-6">
-          <!-- Category badge -->
-          <span
-            id="modal-cat"
-            class="inline-block font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/50 px-2.5 py-1 mb-3"
-          ></span>
-
-          <!-- Title -->
-          <h2
-            id="modal-title"
-            class="font-['Playfair_Display'] text-3xl font-bold text-deep dark:text-cream mb-1"
-          ></h2>
-
-          <!-- Location -->
-          <p
-            id="modal-location"
-            class="font-['Lato'] text-[11px] font-bold uppercase tracking-[0.25em] text-gold mb-4"
-          ></p>
-
-          <!-- Tags -->
-          <div id="modal-tags" class="flex flex-wrap gap-2 mb-5"></div>
-
-          <!-- Description -->
-          <p
-            id="modal-description"
-            class="font-['Lato'] text-[15px] leading-relaxed text-deep/70 dark:text-cream/70 mb-6"
-          ></p>
-
-          <!-- Info rows -->
-          <div id="modal-info" class="mb-6"></div>
-
-          <!-- Highlights heading -->
-          <p
-            class="font-['Lato'] text-[11px] font-bold uppercase tracking-[0.2em] text-gold mb-3"
-          >
-            Top Highlights
-          </p>
-          <div id="modal-highlights" class="space-y-2 mb-8"></div>
-
-          <!-- Back button -->
-          <div class="pt-5 border-t border-gold/20">
-            <button
-              onclick="closeModal()"
-              class="font-['Lato'] text-[11px] font-bold uppercase tracking-widest text-gold border border-gold px-6 py-2.5 bg-transparent hover:bg-gold/10 transition-colors duration-200 cursor-pointer"
-            >
-              ← Back to Destinations
-            </button>
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
-    <!-- ── FOOTER ── -->
+    <!-- FOOTER -->
     <footer class="bg-[#0f0c09] px-4 sm:px-8 lg:px-16 py-12 sm:py-16">
       <div
         class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 pb-10 sm:pb-12 border-b border-gold/20 mb-8"
       >
-        <!-- Brand -->
         <div>
           <h2
             class="font-['Playfair_Display'] text-2xl font-bold text-cream mb-3"
@@ -958,7 +863,6 @@
             most treasured destinations.
           </p>
         </div>
-        <!-- Explore -->
         <div>
           <h4
             class="font-['Lato'] uppercase tracking-[0.2em] text-[11px] font-semibold text-gold mb-4"
@@ -966,25 +870,16 @@
             Explore
           </h4>
           <a
-            href="/destinations.html"
+            href="destinations.html"
             class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
             >Destinations</a
           >
           <a
-            href="/gallery.html"
+            href="gallery.html"
             class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
             >Gallery</a
           >
-          <a
-            href="#"
-            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
-          ></a>
-          <a
-            href="#"
-            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
-          ></a>
         </div>
-        <!-- Visit -->
         <div>
           <h4
             class="font-['Lato'] uppercase tracking-[0.2em] text-[11px] font-semibold text-gold mb-4"
@@ -992,26 +887,21 @@
             Visit
           </h4>
           <a
-            href="#"
+            href="dest-angkor-wat.html"
             class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
             >Angkor Wat</a
           >
           <a
-            href="#"
+            href="dest-bayon.html"
             class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
             >Bayon Temple</a
           >
           <a
-            href="#"
+            href="dest-ta-prohm.html"
             class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
             >Ta Prohm</a
           >
-          <a
-            href="#"
-            class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
-          ></a>
         </div>
-        <!-- About -->
         <div>
           <h4
             class="font-['Lato'] uppercase tracking-[0.2em] text-[11px] font-semibold text-gold mb-4"
@@ -1019,7 +909,7 @@
             About
           </h4>
           <a
-            href="#"
+            href="about.html"
             class="block font-['Lato'] text-sm text-cream/50 hover:text-cream transition-colors duration-200 mb-2"
             >About Us</a
           >
@@ -1035,7 +925,6 @@
           >
         </div>
       </div>
-
       <div
         class="flex flex-col sm:flex-row items-center sm:justify-between gap-4"
       >
@@ -1043,7 +932,6 @@
           © 2026 Angkorism. All rights reserved.
         </p>
         <div class="flex gap-3">
-          <!-- Instagram -->
           <a
             href="#"
             aria-label="Instagram"
@@ -1062,7 +950,6 @@
               <circle cx="17.5" cy="6.5" r="1" fill="#c8a84b" stroke="none" />
             </svg>
           </a>
-          <!-- Facebook -->
           <a
             href="#"
             aria-label="Facebook"
@@ -1081,7 +968,6 @@
               />
             </svg>
           </a>
-          <!-- X / Twitter -->
           <a
             href="#"
             aria-label="X"
@@ -1099,221 +985,7 @@
   </body>
 
   <script>
-    /* ── Destination data ── */
-    const destinations = {
-      "angkor-wat": {
-        title: "Angkor Wat",
-        location: "Siem Reap · Cambodia",
-        category: "Temple",
-        image:
-          "https://cdn.britannica.com/49/94449-050-ECB0E7C2/Angkor-Wat-temple-complex-Cambodia.jpg",
-        description:
-          "Angkor Wat is the largest religious monument in the world, built in the early 12th century by King Suryavarman II. Originally a Hindu temple dedicated to Vishnu, it gradually became a Theravada Buddhist temple. Its five iconic lotus towers represent the peaks of Mount Meru. The complex is surrounded by a vast moat and over 800 metres of intricate bas-relief galleries.",
-        tags: ["UNESCO World Heritage", "Khmer Architecture", "Must See"],
-        info: [
-          { label: "Built", value: "1113 – 1150 AD" },
-          { label: "Entry Fee", value: "$37 USD (1-Day Pass)" },
-          { label: "Opening Hours", value: "5:00 AM – 6:00 PM" },
-          { label: "Best Time to Visit", value: "Sunrise — arrive by 5 AM" },
-        ],
-        highlights: [
-          "Sunrise over the lotus ponds — arrive before 5 AM",
-          "The bas-relief gallery showing the Churning of the Ocean of Milk",
-          "Climb to the central tower for panoramic views",
-          "Solar alignment at spring equinox — sun rises behind the central spire",
-        ],
-      },
-      bayon: {
-        title: "Bayon Temple",
-        location: "Siem Reap · Cambodia",
-        category: "Temple",
-        image:
-          "https://www.siemreap.net/wp-content/uploads/2019/02/Bayon-Siem-Reap-Cambodia.jpg.webp",
-        description:
-          "Bayon is the state temple of King Jayavarman VII, at the heart of Angkor Thom. Its most distinctive feature is 216 serene stone faces gazing in all four directions across 54 towers. Built as a Buddhist temple, it represents a cosmic mountain at the centre of the universe.",
-        tags: ["UNESCO World Heritage", "Khmer Buddhism", "Iconic Faces"],
-        info: [
-          { label: "Built", value: "Late 12th – early 13th century" },
-          { label: "Entry", value: "Included in Angkor Pass" },
-          { label: "Location", value: "Centre of Angkor Thom" },
-          { label: "Best Visit", value: "Early morning or golden hour" },
-        ],
-        highlights: [
-          "216 massive stone faces carved across 54 towers",
-          "Two levels of bas-reliefs showing historical battle scenes",
-          "More intimate and quieter than Angkor Wat",
-          "Located at the exact geographical centre of Angkor Thom",
-        ],
-      },
-      "ta-prohm": {
-        title: "Ta Prohm",
-        location: "Siem Reap · Cambodia",
-        category: "Temple",
-        image:
-          "https://www.vietvisionholidays.com/wp-content/uploads/2025/01/Ta-Prohm-2.jpg",
-        description:
-          "Ta Prohm is famous for the way nature has reclaimed it — enormous trees grow through the walls and towers. Unlike most Angkor temples, it has been left largely as found, giving visitors a sense of true discovery. It was used as a filming location for Lara Croft: Tomb Raider in 2001.",
-        tags: ["UNESCO World Heritage", "Jungle Ruins", "Photography"],
-        info: [
-          { label: "Built", value: "1186 AD" },
-          { label: "Founded by", value: "King Jayavarman VII" },
-          { label: "Entry", value: "Included in Angkor Pass" },
-          { label: "Tip", value: "Visit early morning — fewer crowds" },
-        ],
-        highlights: [
-          "Giant tree roots dramatically growing through ancient stone walls",
-          "One of the most photogenic temples in Cambodia",
-          "Filming location for Tomb Raider (2001)",
-          "Dense jungle surroundings — feels like true exploration",
-        ],
-      },
-      "Preh-Khan": {
-        title: "Preh Khan",
-        location: "Preh Khan· Cambodia",
-        category: "temple",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Royal_Palace%2C_Phnom_Penh_2.jpg/1200px-Royal_Palace%2C_Phnom_Penh_2.jpg",
-        description:
-          "Cambodia's capital sits at the confluence of the Mekong and Tonlé Sap rivers.  blends French colonial architecture with traditional Khmer design and offers a rich mix of history, food, and culture. The Royal Palace, Silver Pagoda, and riverside promenade all make this one of Southeast Asia's most compelling capitals.",
-        tags: ["Capital City", "Royal Palace", "History & Culture"],
-        info: [
-          { label: "Getting There", value: " International Airport" },
-          { label: "Currency", value: "Cambodian Riel / USD accepted" },
-          { label: "Best Time", value: "November – February" },
-          { label: "Known For", value: "Royal Palace, street food, riverside" },
-        ],
-        highlights: [
-          "The Royal Palace and Silver Pagoda complex",
-          "Waterfront promenade along the Mekong River",
-          "Central Market (Phsar Thmei) for local crafts and food",
-          "Vibrant café and restaurant scene with Khmer cuisine",
-        ],
-      },
-      kulen: {
-        title: "Kulen National Park",
-        location: "Siem Reap · Cambodia",
-        category: "Nature",
-        image:
-          "http://khmerways.com/wp-content/uploads/2018/02/Kulen-National-Park-Waterfall-small.jpg",
-        description:
-          "Phnom Kulen is one of Cambodia's most sacred mountains. In 802 AD, King Jayavarman II declared independence here and founded the Khmer Empire. The mountain features a river full of intricate Hindu carvings, a stunning waterfall, and a giant reclining Buddha carved into natural sandstone.",
-        tags: ["Nature", "Sacred Mountain", "Waterfall", "History"],
-        info: [
-          { label: "Distance from Siem Reap", value: "~50 km" },
-          { label: "Entry Fee", value: "$20 USD" },
-          { label: "Opening Hours", value: "8:00 AM – 5:00 PM" },
-          { label: "Best Season", value: "Rainy season (Jul–Oct)" },
-        ],
-        highlights: [
-          "Sacred riverbed carved with 1,000 lingas and Hindu deities",
-          "Multi-tiered jungle waterfall perfect for swimming",
-          "Giant reclining Buddha carved into a single sandstone boulder",
-          "Birthplace of the Khmer Empire, 802 AD",
-        ],
-      },
-      "banteay-srei": {
-        title: "Banteay Srei",
-        location: "Siem Reap · Cambodia",
-        category: "Temple",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Banteay_Srei_temple_view.jpg/1200px-Banteay_Srei_temple_view.jpg",
-        description:
-          'Banteay Srei, meaning "Citadel of Women," is a 10th-century temple dedicated to Shiva. Built largely of pink sandstone, it is considered one of the finest examples of classical Khmer art. Though small in size, the intricacy of its carvings makes it arguably the most beautiful temple in the Angkor region.',
-        tags: ["UNESCO World Heritage", "Pink Sandstone", "Fine Carvings"],
-        info: [
-          { label: "Built", value: "967 AD" },
-          { label: "Dedicated To", value: "Hindu god Shiva" },
-          { label: "Distance", value: "~25 km from Angkor Wat" },
-          { label: "Entry", value: "Included in Angkor Pass" },
-        ],
-        highlights: [
-          "Most intricate stone carvings in all of Angkor",
-          "Distinctive pink sandstone colour — unique in the region",
-          "Small and compact — easy to explore in 1–2 hours",
-          "Excellent condition with many carvings perfectly preserved",
-        ],
-      },
-    };
-
-    /* ── Open modal ── */
-    function openModal(id) {
-      const d = destinations[id];
-      if (!d) return;
-
-      document.getElementById("modal-img").src = d.image;
-      document.getElementById("modal-img").alt = d.title;
-      document.getElementById("modal-title").textContent = d.title;
-      document.getElementById("modal-location").textContent = d.location;
-      document.getElementById("modal-cat").textContent = d.category;
-      document.getElementById("modal-description").textContent = d.description;
-
-      // Tags
-      const tagsEl = document.getElementById("modal-tags");
-      tagsEl.innerHTML = "";
-      d.tags.forEach((t) => {
-        const span = document.createElement("span");
-        span.className =
-          "font-['Lato'] text-[10px] font-bold uppercase tracking-wider text-gold border border-gold/40 px-2.5 py-1";
-        span.textContent = t;
-        tagsEl.appendChild(span);
-      });
-
-      // Info rows
-      const infoEl = document.getElementById("modal-info");
-      infoEl.innerHTML = "";
-      d.info.forEach((row) => {
-        const div = document.createElement("div");
-        div.className =
-          "flex justify-between items-center py-2.5 border-b border-deep/10 dark:border-white/[0.07] font-['Lato'] text-sm";
-        div.innerHTML = `<span class="text-deep/45 dark:text-cream/45">${row.label}</span><span class="text-deep dark:text-cream font-bold text-right">${row.value}</span>`;
-        infoEl.appendChild(div);
-      });
-
-      // Highlights
-      const hlEl = document.getElementById("modal-highlights");
-      hlEl.innerHTML = "";
-      d.highlights.forEach((h) => {
-        const div = document.createElement("div");
-        div.className =
-          "flex gap-3 items-start font-['Lato'] text-sm text-deep/70 dark:text-cream/70 leading-relaxed";
-        div.innerHTML = `<span class="text-gold flex-shrink-0 mt-0.5">✦</span><span>${h}</span>`;
-        hlEl.appendChild(div);
-      });
-
-      // Show modal
-      const backdrop = document.getElementById("modal-backdrop");
-      const panel = document.getElementById("modal-panel");
-      backdrop.classList.remove("opacity-0", "pointer-events-none");
-      backdrop.classList.add("opacity-100");
-      panel.classList.remove("translate-y-6");
-      panel.classList.add("translate-y-0");
-      document.body.style.overflow = "hidden";
-    }
-
-    /* ── Close modal ── */
-    function closeModal() {
-      const backdrop = document.getElementById("modal-backdrop");
-      const panel = document.getElementById("modal-panel");
-      backdrop.classList.add("opacity-0", "pointer-events-none");
-      backdrop.classList.remove("opacity-100");
-      panel.classList.add("translate-y-6");
-      panel.classList.remove("translate-y-0");
-      document.body.style.overflow = "";
-    }
-
-    /* ── Close on backdrop click ── */
-    function handleBackdropClick(e) {
-      if (e.target === document.getElementById("modal-backdrop")) closeModal();
-    }
-
-    /* ── ESC key ── */
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
-
-    /* ── Filter buttons ── */
     function filterCards(btn, category) {
-      // Reset ALL buttons to inactive state
       document.querySelectorAll(".filter-btn").forEach((b) => {
         b.classList.remove("border-gold", "text-gold", "bg-gold/10");
         b.classList.add(
@@ -1323,8 +995,6 @@
           "dark:text-cream/50",
         );
       });
-
-      // Set clicked button to active state
       btn.classList.remove(
         "border-gold/25",
         "text-deep/80",
@@ -1332,8 +1002,6 @@
         "dark:text-cream/50",
       );
       btn.classList.add("border-gold", "text-gold", "bg-gold/10");
-
-      // Filter cards
       document.querySelectorAll(".dest-card").forEach((card) => {
         card.style.display =
           category === "all" || card.dataset.category === category
@@ -1341,14 +1009,10 @@
             : "none";
       });
     }
-
     function toggleMenu() {
-      const menu = document.getElementById("mobile-menu");
-      const toggle = document.getElementById("menu-toggle");
-      menu.classList.toggle("open");
-      toggle.classList.toggle("open");
+      document.getElementById("mobile-menu").classList.toggle("open");
+      document.getElementById("menu-toggle").classList.toggle("open");
     }
-    /* ── Theme toggle (same as index.html) ── */
     function applyTheme(isDark) {
       const moon = document.getElementById("icon-moon");
       const sun = document.getElementById("icon-sun");
